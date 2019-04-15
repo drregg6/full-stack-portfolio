@@ -3,6 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
+// routes
+const users = require('./routes/api/users');
+app.use('/api/users', 'users');
+
 // bodyParser middleware
 app.use(bodyParser.json());
 
