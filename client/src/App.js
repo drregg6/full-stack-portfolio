@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import CustomNav from './components/CustomNav';
+import Header from './components/Header';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,9 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          <h1>Hello world!</h1>
-        </Container>
+        <CustomNav />
+        <Header />
+        <Portfolio />
+        <Contact />
       </div>
     );
   }
