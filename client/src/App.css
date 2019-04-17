@@ -1,18 +1,30 @@
+/*
+
+COLOR OPTIONS:
+- yellow orange: rgba(255,174,66,1);
+- amber: rgba(255,191,0,1);
+    complemented: #0b62a4;
+    accented: #530fad;
+- golden orange: rgba(235,165,61,1);
+
+*/
+
 * {
     box-sizing: border-box;
 }
 
 body {
     border: 5px solid #222;
+    color: #444;
 }
 
-.custom-nav {
+/*.custom-nav {
     border-bottom: 1px dotted red;
-}
+}*/
 
 
 .container {
-    background: yellow;
+    background: rgba(255,191,0,1);
     padding-right: 80px;
     padding-left: 80px;
     height: 80vh;
@@ -36,6 +48,14 @@ body {
 }
 .custom-header .btn {
     width: 100%;
+}
+.custom-header .btn-outline-primary {
+    border-color: #0b62a4;
+    color: #0b62a4;
+}
+.custom-header .btn-outline-primary:hover {
+    background: #0b62a4;
+    color: #fff;
 }
 
 .custom-portfolio,

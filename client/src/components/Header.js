@@ -16,7 +16,7 @@ class Header extends Component {
                             Regg
                         </h1>
                         <h2>Web Dev</h2>
-                        <Button outline color="primary">My work &rarr;</Button>
+                        <Button outline color="primary" href="#portfolio">My work &rarr;</Button>
                     </div>
                 </Container>
             </React.Fragment>
