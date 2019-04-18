@@ -16,18 +16,29 @@ COLOR OPTIONS:
 body {
     border: 5px solid #222;
     color: #444;
+    font-family: Verdana, sans-serif;
 }
 
-/*.custom-nav {
-    border-bottom: 1px dotted red;
-}*/
+
+/* override bootstrap btn-outline-primary colors */
+.btn {
+    width: 100%;
+}
+.btn-outline-primary {
+    border-color: #0b62a4;
+    color: #0b62a4;
+}
+.btn-outline-primary:hover {
+    background: #0b62a4;
+    color: #fff;
+}
 
 
-.container {
+.custom-container {
     background: rgba(255,191,0,1);
-    padding-right: 80px;
-    padding-left: 80px;
-    height: 80vh;
+    padding-right: 9vw;
+    padding-left: 9vw;
+    height: 110vh;
     min-height: 250px;
 
     display: flex;
@@ -39,23 +50,13 @@ body {
     padding: 0;
 }
 .custom-header h1 {
-    font-size: 3.3rem;
+    font-size: 5rem;
     letter-spacing: .25rem;
+    line-height: 4.8rem;
 }
 .custom-header h2 {
     font-size: 1.4rem;
-    margin: 15px 0 30px 0;
-}
-.custom-header .btn {
-    width: 100%;
-}
-.custom-header .btn-outline-primary {
-    border-color: #0b62a4;
-    color: #0b62a4;
-}
-.custom-header .btn-outline-primary:hover {
-    background: #0b62a4;
-    color: #fff;
+    margin: 2rem 0;
 }
 
 .custom-portfolio,

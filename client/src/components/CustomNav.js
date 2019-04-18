@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    Container,
     Collapse,
     Navbar,
     NavbarToggler,
@@ -28,23 +29,25 @@ class CustomNav extends Component {
     render() {
         return (
             <div className="custom-nav">
-                <Navbar color="light" light expand="sm">
-                    <NavbarBrand href="#">daveregg</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="#">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#portfolio">Portfolio</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#contact">Contact</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
+                <Container>
+                    <Navbar color="light" light expand="md">
+                        <NavbarBrand href="#">daveregg</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                    <NavLink href="#">Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#portfolio">Portfolio</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#contact">Contact</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                </Container>
             </div>
         )
     }

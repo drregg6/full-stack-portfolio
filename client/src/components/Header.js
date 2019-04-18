@@ -8,18 +8,16 @@ import {
 class Header extends Component {
     render() {
         return (
-            <React.Fragment>
-                <Container>
+            <div className="custom-container">
                     <div className="custom-header">
                         <h1>
                             Dave<br />
                             Regg
                         </h1>
-                        <h2>Web Dev</h2>
+                        <h2>Full-stack developer</h2>
                         <Button outline color="primary" href="#portfolio">My work &rarr;</Button>
                     </div>
-                </Container>
-            </React.Fragment>
+            </div>
         )
     }
 }
