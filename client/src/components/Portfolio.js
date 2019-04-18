@@ -18,7 +18,7 @@ class Portfolio extends Component {
             <div className="custom-portfolio" id="portfolio">
                 <CardDeck>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>
@@ -28,7 +28,7 @@ class Portfolio extends Component {
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>
@@ -38,7 +38,7 @@ class Portfolio extends Component {
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>
@@ -50,7 +50,7 @@ class Portfolio extends Component {
                 </CardDeck>
                 <CardDeck>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>
@@ -60,7 +60,7 @@ class Portfolio extends Component {
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>
@@ -70,7 +70,7 @@ class Portfolio extends Component {
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/350x350" alt="Placehold it!" />
+                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
                                 <CardTitle>Card Title</CardTitle>

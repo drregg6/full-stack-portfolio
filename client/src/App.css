@@ -16,7 +16,7 @@ COLOR OPTIONS:
 }
 
 body {
-    border: 5px solid #222;
+/*    border: 5px solid #222;*/
     color: #444;
     font-family: Verdana, sans-serif;
 }
@@ -38,41 +38,12 @@ body {
 
 
 
-/* override reactstrap cards */
-.card-img-overlay {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-}
-
-.card-deck .card {
-    margin-bottom: 15px;
-    margin-right: 10px;
-}
-
-@media (min-width: 576px) {
-    .card-deck {
-        flex-flow: column;
-    }
-
-    .card-deck .card {
-        margin-right: 0;
-    }
-}
-@media (min-width: 768px) {
-    .card-deck {
-        flex-flow: row wrap;
-    }
-}
-
-
-
 /* header rules */
 .custom-container {
     background: rgba(255,191,0,1);
     padding-right: 9vw;
     padding-left: 9vw;
-    height: 110vh;
+    height: 108vh;
     min-height: 250px;
 
     display: flex;
@@ -97,7 +68,7 @@ body {
 
 /* portfolio rules */
 .custom-portfolio {
-    margin: -100px 10vw 0 10vw;
+    margin: -90px 14vw 0 14vw;
 }
 
 .card-deck {
@@ -106,4 +77,47 @@ body {
 
 .portfolio-title {
     text-align: center;
+}
+
+.card-img-overlay .btn {
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+
+/* override reactstrap cards */
+.card-img-overlay {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.card,
+.card-img-top {
+    border-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.card-deck .card {
+    margin-right: .5em;
+}
+.card-deck .card:first-child {
+    margin-left: 0;
+}
+.card-deck .card:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .card-deck {
+        flex-flow: column;
+        margin-bottom: 0;
+    }
+    .card-deck .card {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
 }
