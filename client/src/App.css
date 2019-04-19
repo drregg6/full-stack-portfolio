@@ -38,18 +38,26 @@ body {
 
 
 
-/* center content */
+/* custom style class */
 .center-content {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.primary-text {
+    color: rgba(255,174,66,1);
+}
+.primary-background {
+    background-color: rgba(255,174,66,1);
+}
+.flex-column {
+    flex-direction: column;
 }
 
 
 
 /* header rules */
 .custom-container {
-    background: rgba(255,174,66,1);
     padding-right: 9vw;
     padding-left: 9vw;
     height: 108vh;
@@ -123,5 +131,62 @@ body {
         margin-right: 0;
         margin-left: 0;
         margin-bottom: 1em;
+    }
+}
+
+
+
+/* contact rules */
+.custom-contact {
+    margin: 5em auto;
+}
+
+.contact-icons {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.contact-icons div {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.contact-a {
+    color: #444;
+}
+.contact-a:hover {
+    color: #0b62a4;
+}
+
+.contact-info-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 400px;
+}
+
+.contact-info-box {
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+    width: 50%;
+}
+.contact-info-box:hover i {
+    color: #530fad;
+}
+
+.contact-info-i {
+    margin-bottom: 1em;
+}
+
+.custom-contact iframe {
+    margin: 5em 0;
+    width: 100%;
+    height: 60vh;
+    border: 0;
+}
+
+@media (max-width: 576px) {
+    .contact-icons div:last-child {
+        margin-bottom: 0;
     }
 }
