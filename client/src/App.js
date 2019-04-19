@@ -1,5 +1,8 @@
 /*
 
+INSPIRATION:
+- https://themes.muffingroup.com/be/simple2/?utm_source=sitepoint.com&utm_medium=content&utm_campaign=apr19
+
 HOW TO DESIGN IT:
 - https://www.sitepoint.com/how-to-build-a-stunning-portfolio-website-as-a-web-developer/
 - https://medium.freecodecamp.org/15-web-developer-portfolios-to-inspire-you-137fb1743cae
@@ -7,7 +10,6 @@ HOW TO DESIGN IT:
 DESIGN INSPIRATION:
 - http://mattfarley.ca/
 - http://timmyomahony.com/
-- https://themes.muffingroup.com/be/simple2/?utm_source=sitepoint.com&utm_medium=content&utm_campaign=apr19
 
 */
 

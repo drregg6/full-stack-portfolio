@@ -40,7 +40,7 @@ body {
 
 /* header rules */
 .custom-container {
-    background: rgba(255,191,0,1);
+    background: rgba(255,174,66,1);
     padding-right: 9vw;
     padding-left: 9vw;
     height: 108vh;
@@ -77,11 +77,6 @@ body {
 
 .portfolio-title {
     text-align: center;
-}
-
-.card-img-overlay .btn {
-    width: 70%;
-    margin: 0 auto;
 }
 
 

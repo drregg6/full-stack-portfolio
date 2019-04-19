@@ -24,7 +24,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
@@ -34,7 +34,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
@@ -44,7 +44,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                 </CardDeck>
@@ -56,7 +56,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
@@ -66,7 +66,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
@@ -76,7 +76,7 @@ class Portfolio extends Component {
                                 <CardTitle>Card Title</CardTitle>
                                 <CardText>Hello world</CardText>
                             </div>
-                            <Button outline color="primary">See More</Button>
+                            <Button outline color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                 </CardDeck>
