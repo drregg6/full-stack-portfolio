@@ -11,6 +11,14 @@ DESIGN INSPIRATION:
 - http://mattfarley.ca/
 - http://timmyomahony.com/
 
+TODO:
+- About Component (between Portfolio and Contact)
+- Style Contact Form
+- Style Portfolio onHover
+- Fixed 'scroll back to top' icon
+- Footer information
+- Better spacing in the Contact Component
+
 */
 
 import React, { Component } from 'react';
@@ -18,6 +26,7 @@ import CustomNav from './components/CustomNav';
 import Header from './components/Header';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,6 +43,7 @@ class App extends Component {
         <Header />
         <Portfolio />
         <Contact />
+        <Footer />
       </div>
     );
   }
