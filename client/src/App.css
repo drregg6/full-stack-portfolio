@@ -38,6 +38,15 @@ body {
 
 
 
+/* center content */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 /* header rules */
 .custom-container {
     background: rgba(255,174,66,1);

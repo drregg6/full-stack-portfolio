@@ -30,7 +30,7 @@ class CustomNav extends Component {
         return (
             <div className="custom-nav">
                 <Container>
-                    <Navbar color="light" light expand="md">
+                    <Navbar light expand="md">
                         <NavbarBrand href="#">daveregg</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>

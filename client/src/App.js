@@ -22,6 +22,7 @@ import Contact from './components/Contact';
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 // reactstrap
 import { Container } from 'reactstrap';
 
