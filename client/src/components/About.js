@@ -32,7 +32,7 @@ class About extends Component {
           </p>
         </Container>
         <CardGroup className="about-card-group inner-margin header-invasion-margin-top row">
-          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
+          <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
             <div className="about-card-header center-content flex-column">
               <i className="fab fa-js fa-3x"></i>
               <CardTitle className="header-subtext">Skills</CardTitle>
@@ -45,21 +45,7 @@ class About extends Component {
               </ListGroup>
             </CardText>
           </Card>
-          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
-            <div className="about-card-header center-content flex-column">
-              <i className="fab fa-react fa-3x"></i>
-              <CardTitle className="header-subtext">Languages</CardTitle>
-            </div>
-            <CardText>
-              <ListGroup flush>
-                <ListGroupItem>HTML/CSS</ListGroupItem>
-                <ListGroupItem>Javascript</ListGroupItem>
-                <ListGroupItem>Ruby</ListGroupItem>
-                <ListGroupItem>Python</ListGroupItem>
-              </ListGroup>
-            </CardText>
-          </Card>
-          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
+          <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
             <div className="about-card-header center-content flex-column">
               <i className="fas fa-database fa-3x"></i>
               <CardTitle className="header-subtext">Technologies</CardTitle>
@@ -74,6 +60,20 @@ class About extends Component {
                 <ListGroupItem>SQLite</ListGroupItem>
                 <ListGroupItem>Express</ListGroupItem>
                 <ListGroupItem>Rails</ListGroupItem>
+              </ListGroup>
+            </CardText>
+          </Card>
+          <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
+            <div className="about-card-header center-content flex-column">
+              <i className="fab fa-react fa-3x"></i>
+              <CardTitle className="header-subtext">Languages</CardTitle>
+            </div>
+            <CardText>
+              <ListGroup flush>
+                <ListGroupItem>HTML/CSS</ListGroupItem>
+                <ListGroupItem>Javascript</ListGroupItem>
+                <ListGroupItem>Ruby</ListGroupItem>
+                <ListGroupItem>Python</ListGroupItem>
               </ListGroup>
             </CardText>
           </Card>

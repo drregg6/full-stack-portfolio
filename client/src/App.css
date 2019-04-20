@@ -91,6 +91,9 @@ a:hover,
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
 }
+.inner-padding {
+    padding: 2.5rem;
+}
 
 .portfolio-font-color {
     color: #cacaca;
@@ -237,6 +240,10 @@ nav {
 .about-card {
     border: none;
     justify-content: center;
+    border-right: 1px solid rgba(255,174,66,.25);
+}
+.about-card:last-child {
+    border-right: none;
 }
 
 .about-card p {
@@ -253,7 +260,8 @@ nav {
     position: relative;
     left: 2rem;
 }
-.contact-header:after {
+.contact-header:after,
+.about-header div:after {
     content: '';
     display: block;
     height: 2px;
@@ -321,6 +329,7 @@ nav {
         margin-right: 3rem;
     }
     .about-card {
+        border-right: none;
         border-bottom: 1px solid rgba(255,174,66,.25);
     }
     .about-card:last-child {
