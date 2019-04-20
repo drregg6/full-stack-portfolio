@@ -8,7 +8,7 @@ import {
 class Header extends Component {
     render() {
         return (
-            <div className="custom-container primary-background">
+            <div className="custom-container primary-background" id="home">
                     <div className="custom-header">
                         <h1>
                             Dave<br />

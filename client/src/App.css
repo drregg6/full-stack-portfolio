@@ -16,7 +16,6 @@ COLOR OPTIONS:
 }
 
 body {
-/*    border: 5px solid #222;*/
     color: #444;
     font-family: Verdana, sans-serif;
     overflow-x: hidden;
@@ -38,6 +37,7 @@ body {
 }
 .btn-outline-primary:hover {
     background: #0b62a4;
+    border-color: #0b62a4;
     color: #fff;
 }
 
@@ -49,20 +49,37 @@ body {
     justify-content: center;
     align-items: center;
 }
-.primary-text {
+.flex-column {
+    flex-direction: column;
+}
+.header-text {
     color: rgba(255,174,66,1);
+    font-size: 3rem;
+    letter-spacing: -3.5px;
+}
+.header-subtext {
+    font-size: 1.5rem;
 }
 .primary-background {
     background-color: rgba(255,174,66,1);
 }
-.flex-column {
-    flex-direction: column;
+a,
+.navbar-light .navbar-nav .nav-link {
+    color: #444;
+}
+a:hover,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #0b62a4;
 }
 
 
 /* navigation */
 nav {
     background: rgba(255,255,255,0.95);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #444;
 }
 
 
@@ -90,21 +107,6 @@ nav {
 .custom-header h2 {
     font-size: 1.4rem;
     margin: 2rem 0;
-}
-
-
-
-/* portfolio rules */
-.custom-portfolio {
-    margin: -90px 14vw 0 14vw;
-}
-
-.card-deck {
-    margin-bottom: 2rem;
-}
-
-.portfolio-title {
-    text-align: center;
 }
 
 
@@ -164,6 +166,39 @@ nav {
 
 
 
+/* portfolio rules */
+.custom-portfolio {
+    margin: -90px 14vw 0 14vw;
+}
+
+.card-deck {
+    margin-bottom: 2rem;
+}
+
+.portfolio-title {
+    text-align: center;
+}
+
+.see-more-card {
+    border: 5px solid #530fad;
+    justify-content: center;
+
+    transition: all .2s;
+}
+.see-more-card .portfolio-title .card-title {
+    font-size: 1em;
+}
+.see-more-card button {
+    font-size: .9em;
+    margin: 0 auto;
+    width: 80%;
+}
+.see-more-card:hover {
+    background: #530fad;
+}
+
+
+
 /* contact rules */
 .contact-header {
     margin: 7.5rem 0;
@@ -178,12 +213,7 @@ nav {
     width: 50px;
     background: black;
 }
-.contact-header h1 {
-    font-size: 3rem;
-    letter-spacing: -3.5px;
-}
 .contact-header h2 {
-    font-size: 1.5rem;
     margin: 20px 0;
 }
 
@@ -194,13 +224,6 @@ nav {
 .contact-icons div {
     margin-top: 2em;
     margin-bottom: 2em;
-}
-
-.contact-a {
-    color: #444;
-}
-.contact-a:hover {
-    color: #0b62a4;
 }
 
 .contact-info-boxes {

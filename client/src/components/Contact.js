@@ -17,21 +17,21 @@ class Contact extends Component {
             <div className="custom-contact" id="contact">
                 <Container>
                     <div className="contact-header">
-                        <h1 className="primary-text">Let's have <br /> a chat.</h1>
-                        <h2>Contact me</h2>
+                        <h1 className="header-text">Let's have <br /> a chat.</h1>
+                        <h2 className="header-subtext">Contact me</h2>
                     </div>
                     <div className="contact-icons center-content row">
                         <div className="center-content col-xs-12 col-sm-6 col-md-3">
-                            <a href="#" className="contact-a"><i className="fas fa-code-branch fa-4x"></i></a>
+                            <a href="#"><i className="fas fa-code-branch fa-4x"></i></a>
                         </div>
                         <div className="center-content col-xs-12 col-sm-6 col-md-3">
-                            <a href="#" className="contact-a"><i className="fab fa-twitter fa-4x"></i></a>
+                            <a href="#"><i className="fab fa-twitter fa-4x"></i></a>
                         </div>
                         <div className="center-content col-xs-12 col-sm-6 col-md-3">
-                            <a href="#" className="contact-a"><i className="fab fa-linkedin fa-4x"></i></a>
+                            <a href="#"><i className="fab fa-linkedin fa-4x"></i></a>
                         </div>
                         <div className="center-content col-xs-12 col-sm-6 col-md-3">
-                            <a href="#" className="contact-a"><i className="fab fa-facebook-f fa-4x"></i></a>
+                            <a href="#"><i className="fab fa-facebook-f fa-4x"></i></a>
                         </div>
                     </div>
                     <div className="row">
@@ -71,7 +71,7 @@ class Contact extends Component {
                                     id="formMessage"
                                 />
                             </FormGroup>
-                            <Button>Submit</Button>
+                            <Button outline className="btn" color="primary">Submit</Button>
                         </Form>
                         <div className="col-md-6 col-sm-12 contact-info-boxes">
                             <div className="center-content row contact-info-box">
