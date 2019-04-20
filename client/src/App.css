@@ -304,6 +304,20 @@ nav {
 
 
 
+/*  Footer rules */
+.custom-footer {
+    margin: 2.5rem;
+}
+
+.custom-footer a {
+    color: #0b62a4;
+}
+.custom-footer a:hover {
+    color: #444;
+}
+
+
+
 /* tablet */
 @media (max-width: 768px) {
     .card-deck {
