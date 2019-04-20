@@ -79,6 +79,7 @@ a,
 a:hover,
 .navbar-light .navbar-nav .nav-link:hover {
     color: #0b62a4;
+    text-decoration: none;
 }
 
 .component-margin {
@@ -143,7 +144,7 @@ nav {
     justify-content: center;
 }
 
-.card,
+.portfolio-card-link,
 .card-img-top {
     border: none;
     border-radius: 0;
@@ -154,13 +155,13 @@ nav {
     width: auto;
 }
 
-.card-deck .card {
+.card-deck .portfolio-card-link {
     height: 65vh;
 }
-.card-deck .card:first-child {
+.card-deck .portfolio-card-link:first-child {
     margin-left: 0;
 }
-.card-deck .card:last-child {
+.card-deck .portfolio-card-link:last-child {
     margin-right: 0;
 }
 
@@ -181,7 +182,7 @@ nav {
 }
 
 .portfolio-card-link img {
-    transition: all .25s ease-in;
+    transition: all .15s ease-in;
 }
 
 .portfolio-card-link:hover img {
@@ -189,16 +190,19 @@ nav {
 }
 
 /* link to github */
-.see-more-card {
+.see-more-card,
+.see-more-card i {
     justify-content: center;
 
     transition: all .2s;
 }
 .see-more-card:hover {
     background: #530fad;
+    color: #fff;
 }
 .see-more-card i {
     color: #530fad;
+    margin-bottom: 2.5rem;
 }
 .see-more-card:hover i {
     color: #fff;
@@ -209,7 +213,7 @@ nav {
 /* contact rules */
 .contact-header {
     position: relative;
-    left: 15%;
+    left: 2rem;
 }
 .contact-header:after {
     content: '';
@@ -262,7 +266,7 @@ nav {
         margin-left: 5rem;
         margin-right: 5rem;
     }
-    .card-deck .card {
+    .card-deck .portfolio-card-link {
         margin: 0;
         margin-bottom: 1rem;
         height: 92vh;
@@ -277,29 +281,10 @@ nav {
         margin-left: 2rem;
         margin-right: 2rem;
     }
-    .card-deck .card {
+    .card-deck .portfolio-card-link {
         height: 75vh;
     }
     .contact-icons div:last-child {
         margin-bottom: 0;
     }
 }
-
-/*@media (max-width: 768px) {
-    .card-deck {
-        flex-flow: column;
-        margin-bottom: 0;
-    }
-    .card-deck .card {
-        margin-right: 0;
-        margin-left: 0;
-        margin-bottom: 1em;
-
-        height: 92vh;
-    }
-}
-@media (max-width: 576px) {
-    .card-deck .card {
-        height: 60vh;
-    }
-}*/

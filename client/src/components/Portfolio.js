@@ -69,10 +69,10 @@ class Portfolio extends Component {
               </div>
             </CardImgOverlay>
           </a>
-          <a href="#" className="portfolio-card-link card see-more-card">
+          <a href="https://github.com/drregg6" className="portfolio-card-link card see-more-card">
             <div className="portfolio-title">
-              <i className="far fa-grin-alt fa-5x"></i>
-              <CardTitle>Check out more on my Github</CardTitle>
+              <i className="far fa-grin-alt fa-5x inner-margin"></i>
+              <CardTitle className="inner-margin">Check out more on my Github</CardTitle>
             </div>
           </a>
         </CardDeck>
