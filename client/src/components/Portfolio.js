@@ -20,66 +20,73 @@ import Image5 from '../img/image5.jpg';
 class Portfolio extends Component {
   render() {
     return (
-      <div className="custom-portfolio" id="portfolio">
+      <div className="custom-portfolio component-margin" id="portfolio">
         <CardDeck>
-          <Card>
-            <CardImg top width="100%" src={Image1} alt="Placehold it!" />
-            <CardImgOverlay>
-              <div className="portfolio-title">
-                <CardTitle>Museum App</CardTitle>
-                <CardText>React, APIs, React Router</CardText>
-              </div>
-              <Button color="primary">Code on Github &rarr;</Button>
-            </CardImgOverlay>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src={Image2} alt="Placehold it!" />
-            <CardImgOverlay>
-              <div className="portfolio-title">
-                <CardTitle>Weather App</CardTitle>
-                <CardText>React, APIs</CardText>
-              </div>
-              <Button color="primary">Code on Github &rarr;</Button>
-            </CardImgOverlay>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src={Image3} alt="Placehold it!" />
-            <CardImgOverlay>
-              <div className="portfolio-title">
-                <CardTitle>Drumkit</CardTitle>
-                <CardText>React, Audio</CardText>
-              </div>
-              <Button color="primary">Code on Github &rarr;</Button>
-            </CardImgOverlay>
-          </Card>
+          <a href="#" className="portfolio-card-link">
+            <Card>
+              <CardImg top width="100%" src={Image1} alt="Placehold it!" />
+              <CardImgOverlay>
+                <div className="portfolio-title portfolio-font-color">
+                  <CardTitle>Museum App</CardTitle>
+                  <CardText>React, APIs, React Router</CardText>
+                </div>
+              </CardImgOverlay>
+            </Card>
+          </a>
+          <a href="#" className="portfolio-card-link">
+            <Card>
+              <CardImg top width="100%" src={Image2} alt="Placehold it!" />
+              <CardImgOverlay>
+                <div className="portfolio-title portfolio-font-color">
+                  <CardTitle>Weather App</CardTitle>
+                  <CardText>React, APIs</CardText>
+                </div>
+              </CardImgOverlay>
+            </Card>
+          </a>
+          <a href="#" className="portfolio-card-link">
+            <Card>
+              <CardImg top width="100%" src={Image3} alt="Placehold it!" />
+              <CardImgOverlay>
+                <div className="portfolio-title portfolio-font-color">
+                  <CardTitle>Drumkit</CardTitle>
+                  <CardText>React, Audio</CardText>
+                </div>
+              </CardImgOverlay>
+            </Card>
+          </a>
         </CardDeck>
         <CardDeck>
-          <Card>
-            <CardImg top width="100%" src={Image4} alt="Placehold it!" />
-            <CardImgOverlay>
+          <a href="#" className="portfolio-card-link">
+            <Card>
+              <CardImg top width="100%" src={Image4} alt="Placehold it!" />
+              <CardImgOverlay>
+                <div className="portfolio-title portfolio-font-color">
+                  <CardTitle>Portfolio</CardTitle>
+                  <CardText>React, Redux, MongoDB, Mongoose</CardText>
+                </div>
+              </CardImgOverlay>
+            </Card>
+          </a>
+          <a href="#" className="portfolio-card-link">
+            <Card>
+              <CardImg top width="100%" src={Image5} alt="Placehold it!" />
+              <CardImgOverlay>
+                <div className="portfolio-title portfolio-font-color">
+                  <CardTitle>US GDP</CardTitle>
+                  <CardText>D3.js</CardText>
+                </div>
+              </CardImgOverlay>
+            </Card>
+          </a>
+          <a href="#" className="portfolio-card-link">
+            <Card className="see-more-card">
               <div className="portfolio-title">
-                <CardTitle>Portfolio</CardTitle>
-                <CardText>React, Redux, MongoDB, Mongoose</CardText>
+                <i className="far fa-grin-alt fa-5x"></i>
+                <CardTitle>Check out more on my Github</CardTitle>
               </div>
-              <Button color="primary">Code on Github &rarr;</Button>
-            </CardImgOverlay>
-          </Card>
-          <Card>
-            <CardImg top width="100%" src={Image5} alt="Placehold it!" />
-            <CardImgOverlay>
-              <div className="portfolio-title">
-                <CardTitle>US GDP</CardTitle>
-                <CardText>D3.js</CardText>
-              </div>
-              <Button color="primary">Code on Github &rarr;</Button>
-            </CardImgOverlay>
-          </Card>
-          <Card className="see-more-card">
-            <div className="portfolio-title">
-              <CardTitle>Check out more on my Github</CardTitle>
-            </div>
-            <Button color="primary">Visit my Github page</Button>
-          </Card>
+            </Card>
+          </a>
         </CardDeck>
       </div>
     )

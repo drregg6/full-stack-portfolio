@@ -6,7 +6,7 @@ import {
 class Footer extends Component {
     render() {
         return (
-            <div className="custom-footer">
+            <div className="custom-footer component-margin">
                 <Container>
                     <div className="row">
                         <div className="col-xs-12 col-sm-6">
