@@ -6,20 +6,22 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  CardText
+  CardText,
+  ListGroup,
+  ListGroupItem
 } from 'reactstrap';
 
 class About extends Component {
   render() {
     return (
       <div className="custom-about component-margin" id="about">
-        <Container fluid className="header-container flex-column" style={{border: '1rem solid orange', height: '90vh', minHeight: '250px', alignItems: 'flex-start'}} >
-          <div className="about-header inner-margin">
-            <h1 className="header-text" style={{color: '#444'}}>
+        <Container fluid className="custom-container flex-column about-header">
+          <div className="inner-margin">
+            <h1 className="header-text">
               Hey,<br />
               I'm Dave
             </h1>
-            <h2 className="header-subtext" style={{color: 'orange'}}>
+            <h2 className="header-subtext">
               Nice to meet you!
             </h2>
           </div>
@@ -29,40 +31,50 @@ class About extends Component {
             Successfully running an app after a long session of programming is sublime.
           </p>
         </Container>
-        <CardGroup className="inner-margin portfolio-margin-top" style={{marginLeft: '5rem', marginRight: '5rem', border: '1px dotted #444'}}>
-          <Card className="center-content" style={{justifyContent: 'center', borderRight: '1px dotted #444', borderBottom: '1px dotted #444'}} body>
+        <CardGroup className="about-card-group inner-margin header-invasion-margin-top row">
+          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
             <div className="about-card-header center-content flex-column">
               <i className="fab fa-js fa-3x"></i>
-              <CardTitle className="header-subtext">Frontend</CardTitle>
+              <CardTitle className="header-subtext">Skills</CardTitle>
             </div>
             <CardText>
-              HTML<br />
-              CSS<br />
-              Bootstrap<br />
-              Javascript
+              <ListGroup flush>
+                <ListGroupItem>Mobile first design</ListGroupItem>
+                <ListGroupItem>Clean, organized code</ListGroupItem>
+                <ListGroupItem>Problem solving</ListGroupItem>
+              </ListGroup>
             </CardText>
           </Card>
-          <Card className="center-content" style={{justifyContent: 'center', borderRight: '1px dotted #444', borderBottom: '1px dotted #444'}} body>
+          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
             <div className="about-card-header center-content flex-column">
               <i className="fab fa-react fa-3x"></i>
+              <CardTitle className="header-subtext">Languages</CardTitle>
+            </div>
+            <CardText>
+              <ListGroup flush>
+                <ListGroupItem>HTML/CSS</ListGroupItem>
+                <ListGroupItem>Javascript</ListGroupItem>
+                <ListGroupItem>Ruby</ListGroupItem>
+                <ListGroupItem>Python</ListGroupItem>
+              </ListGroup>
+            </CardText>
+          </Card>
+          <Card className="about-card center-content col-12 col-lg-4 inner-margin" body>
+            <div className="about-card-header center-content flex-column">
+              <i className="fas fa-database fa-3x"></i>
               <CardTitle className="header-subtext">Technologies</CardTitle>
             </div>
             <CardText>
-              React<br />
-              Redux<br />
-              Express
-            </CardText>
-          </Card>
-          <Card className="center-content" style={{justifyContent: 'center'}} body>
-            <div className="about-card-header center-content flex-column">
-              <i className="fas fa-database fa-3x"></i>
-              <CardTitle className="header-subtext">Backend</CardTitle>
-            </div>
-            <CardText>
-              MongoDB<br />
-              Mongoose<br />
-              SQLite<br />
-              Ruby
+              <ListGroup flush>
+                <ListGroupItem>Bootstrap</ListGroupItem>
+                <ListGroupItem>React</ListGroupItem>
+                <ListGroupItem>Redux</ListGroupItem>
+                <ListGroupItem>MongoDB</ListGroupItem>
+                <ListGroupItem>Mongoose</ListGroupItem>
+                <ListGroupItem>SQLite</ListGroupItem>
+                <ListGroupItem>Express</ListGroupItem>
+                <ListGroupItem>Rails</ListGroupItem>
+              </ListGroup>
             </CardText>
           </Card>
         </CardGroup>

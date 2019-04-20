@@ -20,7 +20,7 @@ import Image5 from '../img/image5.jpg';
 class Portfolio extends Component {
   render() {
     return (
-      <div className="custom-portfolio component-margin portfolio-margin-top" id="portfolio">
+      <div className="custom-portfolio component-margin header-invasion-margin-top" id="portfolio">
         <CardDeck>
           <a href="http://lit-beach-33230.herokuapp.com" className="portfolio-card-link card">
             <CardImg top width="100%" src={Image1} alt="Placehold it!" />

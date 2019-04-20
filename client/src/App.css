@@ -51,6 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* custom style class */
+
 .center-content {
     display: flex;
     justify-content: center;
@@ -97,6 +98,19 @@ a:hover,
     font-size: 1.8rem;
 }
 
+.custom-container {
+    padding-right: 9vw;
+    padding-left: 9vw;
+
+    height: 110vh;
+    min-height: 250px;
+
+    display: flex;
+    align-items: center;
+}
+.header-invasion-margin-top {
+    margin-top: -90px;
+}
 
 
 /* navigation */
@@ -110,17 +124,7 @@ nav {
 
 
 
-/* header rules */
-.header-container {
-    padding-right: 9vw;
-    padding-left: 9vw;
-
-    height: 110vh;
-    min-height: 250px;
-
-    display: flex;
-    align-items: center;
-}
+/* Header rules */
 .app-header h1 {
     font-size: 5rem;
     letter-spacing: .25rem;
@@ -129,11 +133,7 @@ nav {
 
 
 
-/* portfolio rules */
-.portfolio-margin-top {
-    margin-top: -90px;
-}
-
+/* Portfolio rules */
 .card-deck {
     margin-left: 4rem;
     margin-right: 4rem;
@@ -210,7 +210,45 @@ nav {
 
 
 
-/* contact rules */
+/* About rules */
+.about-header {
+    border: 1rem solid rgba(255,174,66,1);
+    height: 90vh;
+    min-height: 250px;
+    align-items: flex-start;
+}
+
+.about-header h1 {
+    color: #444;
+}
+
+.about-header h2 {
+    color: rgba(255,174,66,1);
+}
+
+.about-card-group {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border: 1px solid rgba(255,174,66,.25);
+}
+
+.about-card {
+    border: none;
+    justify-content: center;
+}
+
+.about-card p {
+    text-align: center;
+}
+
+.about-card:last-child {
+    margin-bottom: inherit;
+}
+
+
+/* Contact rules */
 .contact-header {
     position: relative;
     left: 2rem;
@@ -270,6 +308,23 @@ nav {
         margin: 0;
         margin-bottom: 1rem;
         height: 92vh;
+    }
+    .card-group>.card {
+        flex: none;
+        margin-bottom: 2.5rem;
+    }
+    .card-group>.card:last-child {
+        margin-bottom: 0;
+    }
+    .about-card-group {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .about-card {
+        border-bottom: 1px solid rgba(255,174,66,.25);
+    }
+    .about-card:last-child {
+        border-bottom: none;
     }
 }
 
