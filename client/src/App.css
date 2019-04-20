@@ -137,13 +137,30 @@ body {
 
 
 /* contact rules */
-.custom-contact {
-    margin: 5em auto;
+.contact-header {
+    margin: 7.5rem 0;
+
+    position: relative;
+    left: 15%;
+}
+.contact-header:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 50px;
+    background: black;
+}
+.contact-header h1 {
+    font-size: 3rem;
+    letter-spacing: -3.5px;
+}
+.contact-header h2 {
+    font-size: 1.5rem;
+    margin: 20px 0;
 }
 
 .contact-icons {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 5rem;
 }
 
 .contact-icons div {
@@ -179,7 +196,7 @@ body {
 }
 
 .custom-contact iframe {
-    margin: 5em 0;
+    margin: 5rem 0;
     width: 100%;
     height: 60vh;
     border: 0;
