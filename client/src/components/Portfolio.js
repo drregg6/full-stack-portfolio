@@ -11,6 +11,11 @@ import {
     CardSubtitle,
     Button
 } from 'reactstrap';
+import Image1 from '../img/image1.jpg';
+import Image2 from '../img/image2.jpg';
+import Image3 from '../img/image3.jpg';
+import Image4 from '../img/image4.jpg';
+import Image5 from '../img/image5.jpg';
 
 class Portfolio extends Component {
     render() {
@@ -18,66 +23,62 @@ class Portfolio extends Component {
             <div className="custom-portfolio" id="portfolio">
                 <CardDeck>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
+                        <CardImg top width="100%" src={Image1} alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
+                                <CardTitle>Museum App</CardTitle>
+                                <CardText>React, APIs, React Router</CardText>
                             </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
+                            <Button color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
+                        <CardImg top width="100%" src={Image2} alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
+                                <CardTitle>Weather App</CardTitle>
+                                <CardText>React, APIs</CardText>
                             </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
+                            <Button color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
+                        <CardImg top width="100%" src={Image3} alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
+                                <CardTitle>Drumkit</CardTitle>
+                                <CardText>React, Audio</CardText>
                             </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
+                            <Button color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                 </CardDeck>
                 <CardDeck>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
+                        <CardImg top width="100%" src={Image4} alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
+                                <CardTitle>Portfolio</CardTitle>
+                                <CardText>React, Redux, MongoDB, Mongoose</CardText>
                             </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
+                            <Button color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
+                        <CardImg top width="100%" src={Image5} alt="Placehold it!" />
                         <CardImgOverlay>
                             <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
+                                <CardTitle>US GDP</CardTitle>
+                                <CardText>D3.js</CardText>
                             </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
+                            <Button color="primary">Code on Github &rarr;</Button>
                         </CardImgOverlay>
                     </Card>
                     <Card>
-                        <CardImg top width="100%" src="https://placehold.it/325x400" alt="Placehold it!" />
-                        <CardImgOverlay>
-                            <div className="portfolio-title">
-                                <CardTitle>Card Title</CardTitle>
-                                <CardText>Hello world</CardText>
-                            </div>
-                            <Button outline color="primary">Code on Github &rarr;</Button>
-                        </CardImgOverlay>
+                        <div className="portfolio-title">
+                            <CardTitle>See more of my work...</CardTitle>
+                        </div>
+                        <Button color="primary">Code on Github &rarr;</Button>
                     </Card>
                 </CardDeck>
             </div>

@@ -98,7 +98,7 @@ class Contact extends Component {
                         </div>
                     </div>
                 </Container>
-                <iframe src={MAPS_IFRAME} allowfullscreen></iframe>
+                <iframe src={MAPS_IFRAME} allowFullScreen></iframe>
             </div>
         )
     }

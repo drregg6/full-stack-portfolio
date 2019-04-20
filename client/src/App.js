@@ -17,7 +17,6 @@ TODO:
 - Style Portfolio onHover
 - Fixed 'scroll back to top' icon
 - Footer information
-- Better spacing in the Contact Component
 - Portfolio Links
     - Museum App
     - Weather App
