@@ -12,11 +12,10 @@ DESIGN INSPIRATION:
 - http://timmyomahony.com/
 
 TODO:
-- About Component (between Portfolio and Contact)
 - Style Contact Form
-- Style Portfolio onHover
-- Fixed 'scroll back to top' icon
 - Footer information
+    - font awesome
+    - design inspiration
 - Portfolio Links
     - Museum App
     - Weather App
