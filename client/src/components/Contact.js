@@ -20,21 +20,7 @@ class Contact extends Component {
                         <h1 className="header-text">Let's have <br /> a chat.</h1>
                         <h2 className="header-subtext">Contact me</h2>
                     </div>
-                    <div className="contact-icons center-content inner-margin row">
-                        <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                            <a href="#"><i className="fas fa-code-branch fa-4x"></i></a>
-                        </div>
-                        <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                            <a href="#"><i className="fab fa-twitter fa-4x"></i></a>
-                        </div>
-                        <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                            <a href="#"><i className="fab fa-linkedin fa-4x"></i></a>
-                        </div>
-                        <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                            <a href="#"><i className="fab fa-facebook-f fa-4x"></i></a>
-                        </div>
-                    </div>
-                    <div className="row inner-margin">
+                    <div className="contact-form-row row inner-margin">
                         <Form className="col-md-6 col-sm-12">
                             <FormGroup>
                                 <Label for="formName">Name</Label>
@@ -99,6 +85,20 @@ class Contact extends Component {
                     </div>
                 </Container>
                 <iframe src={MAPS_IFRAME} allowFullScreen className="inner-margin"></iframe>
+                <div className="contact-icons center-content inner-margin row">
+                    <div className="center-content col-xs-6 col-sm-6 col-md-3">
+                        <a href="#"><i className="fas fa-code-branch fa-4x"></i></a>
+                    </div>
+                    <div className="center-content col-xs-6 col-sm-6 col-md-3">
+                        <a href="#"><i className="fab fa-twitter fa-4x"></i></a>
+                    </div>
+                    <div className="center-content col-xs-6 col-sm-6 col-md-3">
+                        <a href="#"><i className="fab fa-linkedin fa-4x"></i></a>
+                    </div>
+                    <div className="center-content col-xs-6 col-sm-6 col-md-3">
+                        <a href="#"><i className="fab fa-facebook-f fa-4x"></i></a>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -256,10 +256,6 @@ nav {
 
 
 /* Contact rules */
-.contact-header {
-    position: relative;
-    left: 2rem;
-}
 .contact-header:after,
 .about-header div:after {
     content: '';
