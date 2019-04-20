@@ -128,11 +128,19 @@ nav {
 
 
 
-/* override reactstrap cards */
+/* portfolio rules */
+.portfolio-margin-top {
+    margin-top: -90px;
+}
+
+.card-deck {
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
 .card-img-overlay {
     display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .card,
@@ -147,8 +155,7 @@ nav {
 }
 
 .card-deck .card {
-    margin-right: .5em;
-    height: 60vh;
+    height: 65vh;
 }
 .card-deck .card:first-child {
     margin-left: 0;
@@ -157,57 +164,35 @@ nav {
     margin-right: 0;
 }
 
-@media (max-width: 768px) {
-    .card-deck {
-        flex-flow: column;
-        margin-bottom: 0;
-    }
-    .card-deck .card {
-        margin-right: 0;
-        margin-left: 0;
-        margin-bottom: 1em;
-
-        height: 92vh;
-    }
-}
-@media (max-width: 576px) {
-    .card-deck .card {
-        height: 60vh;
-    }
-}
-
-
-
-/* portfolio rules */
-.custom-portfolio {
-    margin: -90px 12vw 5rem 12vw;
-}
-
 .portfolio-title {
     text-align: center;
 }
 
 .card-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .card-text {
     font-size: 1rem;
 }
 
+.portfolio-card-link {
+    overflow: hidden;
+}
+
+.portfolio-card-link img {
+    transition: all .25s ease-in;
+}
+
+.portfolio-card-link:hover img {
+    transform: scale(1.25);
+}
+
+/* link to github */
 .see-more-card {
-    border: 5px solid #530fad;
     justify-content: center;
 
     transition: all .2s;
-}
-.see-more-card .portfolio-title .card-title {
-    font-size: 1em;
-}
-.see-more-card button {
-    font-size: .9em;
-    margin: 0 auto;
-    width: 80%;
 }
 .see-more-card:hover {
     background: #530fad;
@@ -223,8 +208,6 @@ nav {
 
 /* contact rules */
 .contact-header {
-    /*margin: 7.5rem 0;*/
-
     position: relative;
     left: 15%;
 }
@@ -269,8 +252,54 @@ nav {
     border: 0;
 }
 
+
+
+/* tablet */
+@media (max-width: 768px) {
+    .card-deck {
+        flex-flow: column;
+        margin: 0;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    .card-deck .card {
+        margin: 0;
+        margin-bottom: 1rem;
+        height: 92vh;
+    }
+}
+
+
+
+/* mobile */
 @media (max-width: 576px) {
+    .card-deck {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .card-deck .card {
+        height: 75vh;
+    }
     .contact-icons div:last-child {
         margin-bottom: 0;
     }
 }
+
+/*@media (max-width: 768px) {
+    .card-deck {
+        flex-flow: column;
+        margin-bottom: 0;
+    }
+    .card-deck .card {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 1em;
+
+        height: 92vh;
+    }
+}
+@media (max-width: 576px) {
+    .card-deck .card {
+        height: 60vh;
+    }
+}*/
