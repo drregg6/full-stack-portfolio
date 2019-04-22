@@ -41,17 +41,23 @@ import './App.css';
 // reactstrap
 import { Container } from 'reactstrap';
 
+// redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <CustomNav />
-        <Header />
-        <Portfolio />
-        <About />
-        <Contact />
-        <Footer />
-      </div>
+        <Provider store={store}>
+          <div className="App">
+            <CustomNav />
+            <Header />
+            <Portfolio />
+            <About />
+            <Contact />
+            <Footer />
+          </div>
+        </Provider>
     );
   }
 }
