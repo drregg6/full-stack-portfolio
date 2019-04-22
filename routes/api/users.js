@@ -17,9 +17,13 @@ router.get('/', (req, res) => {
 // @desc   Post a User
 // @access PUBLIC
 router.post('/', (req, res) => {
+    const { name, apps, information, contact, location } = req.body;
     const newUser = new User({
-        name: req.body.name,
-        city: req.body.city
+        name,
+        apps,
+        information,
+        contact,
+        location
     });
     newUser.save()
         .then(user => {
