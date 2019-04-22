@@ -15,7 +15,7 @@ class About extends Component {
   render() {
     return (
       <div className="custom-about component-margin" id="about">
-        <Container fluid className="custom-container flex-column about-header">
+        <div className="custom-container flex-column about-header">
           <div className="inner-margin">
             <h1 className="header-text">
               Hey,<br />
@@ -30,7 +30,7 @@ class About extends Component {
             Designing and coding is both relaxing and meditative.
             Successfully running an app after a long session of programming is sublime.
           </p>
-        </Container>
+        </div>
         <CardGroup className="about-card-group inner-margin header-invasion-margin-top row">
           <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
             <div className="about-card-header center-content flex-column">

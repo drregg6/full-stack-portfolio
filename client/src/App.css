@@ -17,7 +17,8 @@ COLOR OPTIONS:
 
 body {
     margin-top: 56px; /* clears the fixed nav */
-    overflow-x: hidden;
+    max-width: 100%;
+    /*overflow-x: hidden;*/
 
     color: #444;
     font-size: 16px;
@@ -46,6 +47,10 @@ h1, h2, h3, h4, h5, h6 {
     background: #0b62a4;
     border-color: #0b62a4;
     color: #fff;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 
@@ -229,6 +234,10 @@ nav {
     color: rgba(255,174,66,1);
 }
 
+.about-header p {
+    font-size: 1.1rem;
+}
+
 .about-card-group {
     margin-right: 5rem;
     margin-left: 5rem;
@@ -351,6 +360,15 @@ nav {
 
 /* mobile */
 @media (max-width: 576px) {
+    .about-header {
+        width: auto;
+        height: 120vh;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .about-header p {
+        font-size: 1rem;
+    }
     .card-deck {
         margin-left: 2rem;
         margin-right: 2rem;

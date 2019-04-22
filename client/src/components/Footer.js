@@ -10,7 +10,7 @@ class Footer extends Component {
     return (
       <div className="custom-footer" style={{display: 'flex', justifyContent: 'space-around'}}>
         <span>&copy;{YEAR} &mdash; <a href="http://www.github.com/drregg6">Dave Regg</a></span>
-        <span><a href="#home">&#11205; Up &#11205;</a></span>
+        <span><a href="#home">&#11205;</a></span>
       </div>
     )
   }
