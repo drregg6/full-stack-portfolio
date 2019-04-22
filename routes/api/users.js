@@ -13,13 +13,25 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
+// @route  GET api/users/:username
+// @desc   Get specified user
+// @access PUBLIC
+router.get('/:username', (req, res) => {
+    User.findOne({username: req.params.username})
+        .then(user => {
+            return res.json(user);
+        })
+        .catch(err => console.log(err));
+})
+
 // @route  POST api/users
 // @desc   Post a User
 // @access PUBLIC
 router.post('/', (req, res) => {
-    const { name, apps, information, contact, location } = req.body;
+    const { username, general, apps, information, contact, location } = req.body;
     const newUser = new User({
-        name,
+        username,
+        general,
         apps,
         information,
         contact,

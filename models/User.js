@@ -11,7 +11,17 @@ const AppSchema = new Schema({
 
 
 const UserSchema = new Schema({
-    name: { type: String, required: true },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    general: {
+        firstName: String,
+        lastName: String,
+        age: Number,
+        gender: String
+    },
     apps: [AppSchema],
     information: {
         skills: Array,
