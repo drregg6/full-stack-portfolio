@@ -1,4 +1,7 @@
-import { GET_USERS } from './types';
+import {
+    GET_USERS,
+    GET_USER
+} from './types';
 import axios from 'axios';
 
 export const fetchUsers = () => dispatch => {
@@ -6,9 +9,20 @@ export const fetchUsers = () => dispatch => {
     axios.get('/api/users')
         .then(res => dispatch({
             type: GET_USERS,
-            payload: res.data[0]
+            payload: res.data
         }))
         .catch(err => {
             console.log(`There's been an error: ${err}`)
+        });
+}
+
+export const findUser = username => dispatch => {
+    axios.get(`/api/users/${username}`)
+        .then(res => dispatch({
+            type: GET_USER,
+            payload: res.data
+        }))
+        .catch(err => {
+            console.log(`There's been an error: ${err}`);
         });
 }

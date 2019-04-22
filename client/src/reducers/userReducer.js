@@ -1,7 +1,11 @@
-import { GET_USERS } from '../actions/types.js';
+import {
+    GET_USERS,
+    GET_USER
+} from '../actions/types.js';
 
 const initState = {
-    currentUser: {}
+    users: [],
+    user: {}
 };
 
 const userReducer = (state = initState, action) => {
@@ -9,7 +13,12 @@ const userReducer = (state = initState, action) => {
         case GET_USERS:
             return {
                 ...state,
-                currentUser: action.payload
+                users: action.payload
+            }
+        case GET_USER:
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state
