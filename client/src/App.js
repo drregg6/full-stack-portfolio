@@ -42,22 +42,29 @@ import './App.css';
 import { Container } from 'reactstrap';
 
 // redux
+import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './store';
 
 class App extends Component {
+  componentWillMount() {
+      axios.get('/api/users')
+        .then(res => {
+          console.log(res.data);
+        });
+  }
   render() {
     return (
-        <Provider store={store}>
-          <div className="App">
-            <CustomNav />
-            <Header />
-            <Portfolio />
-            <About />
-            <Contact />
-            <Footer />
-          </div>
-        </Provider>
+      <Provider store={store}>
+        <div className="App">
+          <CustomNav />
+          <Header />
+          <Portfolio />
+          <About />
+          <Contact />
+          <Footer />
+        </div>
+      </Provider>
     );
   }
 }
