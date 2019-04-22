@@ -12,19 +12,23 @@ import { fetchUsers, findUser } from '../actions/userActions';
 class Header extends Component {
 
     componentDidMount() {
-        this.props.fetchUsers();
         this.props.findUser('daveregg');
     }
 
     render() {
         let {user} = this.props.user;
-        console.log(`the general is ${user.general}`);
+
+        // this can only be found once all the objects are generated
+        // is it possible to deconstruct in a tertiary statement?
+        const firstName = user && user.general ? user.general.firstName : null;
+        const lastName = user && user.general ? user.general.lastName : null;
+
         return (
             <div className="custom-container primary-background" id="home">
                     <div className="app-header">
                         <h1>
-                            Dave<br />
-                            Regg
+                            {firstName}<br />
+                            {lastName}
                         </h1>
                         <h2 className="header-subtext">Full-stack developer</h2>
                         <Button outline color="primary" href="#portfolio">My work &rarr;</Button>
