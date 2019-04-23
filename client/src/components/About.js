@@ -18,10 +18,12 @@ import { getSubdocument } from '../actions/userActions';
 class About extends Component {
   componentDidMount() {
     this.props.getSubdocument('daveregg', 'information');
+    this.props.getSubdocument('daveregg');
   }
 
   render() {
     const { skills, technologies, languages } = this.props.information;
+    const firstName = this.props.general ? this.props.general.firstName : 'Francis';
 
     let renderSkills = skills !== undefined ? (
         skills.map(skill => {
@@ -47,7 +49,7 @@ class About extends Component {
           <div className="inner-margin">
             <h1 className="header-text">
               Hey,<br />
-              I'm Dave
+              I'm {firstName}
             </h1>
             <h2 className="header-subtext">
               Nice to meet you!
@@ -101,7 +103,8 @@ class About extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        information: state.user.information
+        information: state.user.information,
+        general: state.user.general
     }
 }
 

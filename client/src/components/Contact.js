@@ -25,23 +25,21 @@ class Contact extends Component {
         this.props.getSubdocument('daveregg', 'location');
     }
 
+    telephoneFormatter = (str) => {
+        if (str.length === 10) {
+            return `${str.substring(0,3)}.${str.substring(3,6)}.${str.substring(6)}`;
+        } else if (str.length === 11) {
+            return `+${str.substring(0,1)} ${str.substring(1,4)}.${str.substring(4,7)}.${str.substring(7)}`;
+        } else {
+            return `Incorrect length`;
+        }
+    }
+
     render() {
-        // const {location} = this.props.location;
+        const { houseNumber, street, city, state, country, zipCode } = this.props.location;
+        const { email, github, twitter, linkedin, facebook } = this.props.contact;
 
-        // THERE'S GOT TO BE AN EASIER WAY TO DO THIS!
-
-        // const email = user && user.contact ? user.contact.email : null;
-        // const github = user && user.contact ? user.contact.github : null;
-        // const telephone = user && user.contact ? user.contact.telephone : null;
-        // const twitter = user && user.contact ? user.contact.twitter : null;
-
-        // const city = user && user.location ? user.location.city : null;
-        // const state = user && user.location ? user.location.state : null;
-        // const country = user && user.location ? user.location.country : null;
-        // const houseNumber = user && user.location ? user.location.houseNumber : null;
-        // const street = user && user.location ? user.location.street : null;
-        // const zipCode = user && user.location ? user.location.zipCode : null;
-        const city = this.props.location.city;
+        const telephone = this.props.contact.telephone !== undefined ? this.telephoneFormatter(this.props.contact.telephone) : '111.111.1111';
         // this is auto-generating south street
         // use maps.google.com API to generate a query instead of a static site
         const MAPS_IFRAME = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.212789765612!2d-75.19255614420365!3d39.94579159495915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c643e19594bf%3A0x1a170241e0f2c523!2s2616+South%20St%2C+Philadelphia%2C+PA+19146!5e0!3m2!1sen!2sus!4v1555676265578!5m2!1sen!2sus`;
@@ -98,8 +96,8 @@ class Contact extends Component {
                                     <i className="far fa-comments fa-3x"></i>
                                 </div>
                                 <div className="col-xs-6 center-content flex-column">
-                                    Tel: 215.530.0440<br />
-                                    E: {'dummy'}<br />
+                                    Tel: {telephone}<br />
+                                    E: {email}<br />
                                 </div>
                             </div>
                             <div className="center-content contact-info-box"></div>
@@ -109,9 +107,9 @@ class Contact extends Component {
                                     <i className="fas fa-address-card fa-3x"></i>
                                 </div>
                                 <div className="col-xs-6 center-content flex-column">
-                                    {'dummy' + ' '}{'dummy'}<br />
-                                    {'dummy'}, {'dummy'}, {'dummy'}<br />
-                                    USA
+                                    {houseNumber + ' '}{street}<br />
+                                    {city}, {state}, {zipCode}<br />
+                                    {country}
                                 </div>
                             </div>
                         </div>
@@ -120,16 +118,16 @@ class Contact extends Component {
                 <iframe src={MAPS_IFRAME} allowFullScreen className="inner-margin"></iframe>
                 <div className="contact-icons center-content inner-margin row">
                     <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                        <a href="#"><i className="fas fa-code-branch fa-4x"></i></a>
+                        <a href={github}><i className="fas fa-code-branch fa-4x"></i></a>
                     </div>
                     <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                        <a href="#"><i className="fab fa-twitter fa-4x"></i></a>
+                        <a href={twitter}><i className="fab fa-twitter fa-4x"></i></a>
                     </div>
                     <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                        <a href="#"><i className="fab fa-linkedin fa-4x"></i></a>
+                        <a href={linkedin}><i className="fab fa-linkedin fa-4x"></i></a>
                     </div>
                     <div className="center-content col-xs-6 col-sm-6 col-md-3">
-                        <a href="#"><i className="fab fa-facebook-f fa-4x"></i></a>
+                        <a href={facebook}><i className="fab fa-facebook-f fa-4x"></i></a>
                     </div>
                 </div>
             </div>
