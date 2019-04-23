@@ -18,9 +18,6 @@ class Header extends Component {
     render() {
         let {firstName, lastName} = this.props.general;
 
-        // this can only be found once all the objects are generated
-        // is it possible to deconstruct in a tertiary statement?
-
         return (
             <div className="custom-container primary-background" id="home">
                     <div className="app-header">

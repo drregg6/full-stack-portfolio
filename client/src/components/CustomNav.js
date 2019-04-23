@@ -36,7 +36,8 @@ class CustomNav extends Component {
 
     render() {
         const { firstName, lastName } = this.props.general;
-        const brandName = `${firstName}${lastName}`;
+        const brandName = `${firstName ? firstName.toLowerCase() : 'dummy'}${lastName ? lastName : 'Text'}`;
+
         return (
             <div className="custom-nav">
                 <Container>

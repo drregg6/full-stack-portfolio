@@ -16,7 +16,31 @@ import { connect } from 'react-redux';
 import { getSubdocument } from '../actions/userActions';
 
 class About extends Component {
+  componentDidMount() {
+    this.props.getSubdocument('daveregg', 'information');
+  }
+
   render() {
+    const { skills, technologies, languages } = this.props.information;
+
+    let renderSkills = skills !== undefined ? (
+        skills.map(skill => {
+          return <ListGroupItem>{skill}</ListGroupItem>
+        })
+      ) : ( <ListGroupItem>Workin' on it!</ListGroupItem> );
+
+    let renderTechnologies = technologies !== undefined ? (
+      technologies.map(tech => {
+        return <ListGroupItem>{tech}</ListGroupItem>
+      })
+    ) : ( <ListGroupItem>Workin' on it</ListGroupItem> );
+
+    let renderLanguages = languages !== undefined ? (
+      languages.map(language => {
+        return <ListGroupItem>{language}</ListGroupItem>
+      })
+    ) : ( <ListGroupItem>Workin' real hard</ListGroupItem> );
+
     return (
       <div className="custom-about component-margin" id="about">
         <div className="custom-container flex-column about-header">
@@ -43,9 +67,7 @@ class About extends Component {
             </div>
             <CardText>
               <ListGroup flush>
-                <ListGroupItem>Mobile first design</ListGroupItem>
-                <ListGroupItem>Clean, organized code</ListGroupItem>
-                <ListGroupItem>Problem solving</ListGroupItem>
+                {renderSkills}
               </ListGroup>
             </CardText>
           </Card>
@@ -56,14 +78,7 @@ class About extends Component {
             </div>
             <CardText>
               <ListGroup flush>
-                <ListGroupItem>Bootstrap</ListGroupItem>
-                <ListGroupItem>React</ListGroupItem>
-                <ListGroupItem>Redux</ListGroupItem>
-                <ListGroupItem>MongoDB</ListGroupItem>
-                <ListGroupItem>Mongoose</ListGroupItem>
-                <ListGroupItem>SQLite</ListGroupItem>
-                <ListGroupItem>Express</ListGroupItem>
-                <ListGroupItem>Rails</ListGroupItem>
+                {renderTechnologies}
               </ListGroup>
             </CardText>
           </Card>
@@ -74,10 +89,7 @@ class About extends Component {
             </div>
             <CardText>
               <ListGroup flush>
-                <ListGroupItem>HTML/CSS</ListGroupItem>
-                <ListGroupItem>Javascript</ListGroupItem>
-                <ListGroupItem>Ruby</ListGroupItem>
-                <ListGroupItem>Python</ListGroupItem>
+                {renderLanguages}
               </ListGroup>
             </CardText>
           </Card>
@@ -89,7 +101,7 @@ class About extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        about: state.user.about
+        information: state.user.information
     }
 }
 

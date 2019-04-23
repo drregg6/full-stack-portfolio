@@ -8,7 +8,7 @@ const initState = {
     users: [],
     user: {},
     general: {},
-    location: {},
+    information: {},
     contact: {},
     location: {},
     portfolio: {}
