@@ -10,6 +10,10 @@ import {
     NavLink
 } from 'reactstrap';
 
+// redux
+import { connect } from 'react-redux';
+import { getSubdocument } from '../actions/userActions';
+
 class CustomNav extends Component {
     constructor(props) {
         super(props);
@@ -26,12 +30,18 @@ class CustomNav extends Component {
         });
     }
 
+    componentDidMount() {
+        this.props.getSubdocument('daveregg');
+    }
+
     render() {
+        const { firstName, lastName } = this.props.general;
+        const brandName = `${firstName}${lastName}`;
         return (
             <div className="custom-nav">
                 <Container>
                     <Navbar fixed="top" light expand="md">
-                        <NavbarBrand href="#">daveregg</NavbarBrand>
+                        <NavbarBrand href="#">{brandName}</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -56,4 +66,13 @@ class CustomNav extends Component {
     }
 }
 
-export default CustomNav;
+const mapStateToProps = (state) => {
+    return {
+        general: state.user.general
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getSubdocument }
+)(CustomNav);

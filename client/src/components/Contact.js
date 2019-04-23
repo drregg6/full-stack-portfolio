@@ -8,35 +8,43 @@ import {
     Input,
     FormText
 } from 'reactstrap';
+// import { Link } from 'react-router-dom';
 
 // redux
 import { connect } from 'react-redux';
-import { findUser } from '../actions/userActions';
+import {
+    getSubdocument
+ } from '../actions/userActions';
 
 class Contact extends Component {
+    constructor(props) {
+        super(props);
+    }
     componentDidMount() {
-        this.props.findUser('daveregg');
+        this.props.getSubdocument('daveregg', 'contact');
+        this.props.getSubdocument('daveregg', 'location');
     }
 
     render() {
-        const {user} = this.props.user;
+        // const {location} = this.props.location;
 
-        const email = user && user.contact ? user.contact.email : null;
-        const github = user && user.contact ? user.contact.github : null;
-        const telephone = user && user.contact ? user.contact.telephone : null;
-        const twitter = user && user.contact ? user.contact.twitter : null;
+        // THERE'S GOT TO BE AN EASIER WAY TO DO THIS!
 
-        const city = user && user.location ? user.location.city : null;
-        const state = user && user.location ? user.location.state : null;
-        const country = user && user.location ? user.location.country : null;
-        const houseNumber = user && user.location ? user.location.houseNumber : null;
-        const street = user && user.location ? user.location.street : null;
-        const zipCode = user && user.location ? user.location.zipCode : null;
+        // const email = user && user.contact ? user.contact.email : null;
+        // const github = user && user.contact ? user.contact.github : null;
+        // const telephone = user && user.contact ? user.contact.telephone : null;
+        // const twitter = user && user.contact ? user.contact.twitter : null;
 
-        console.log(`my zipcode is ${zipCode} and my email is ${email}`)
+        // const city = user && user.location ? user.location.city : null;
+        // const state = user && user.location ? user.location.state : null;
+        // const country = user && user.location ? user.location.country : null;
+        // const houseNumber = user && user.location ? user.location.houseNumber : null;
+        // const street = user && user.location ? user.location.street : null;
+        // const zipCode = user && user.location ? user.location.zipCode : null;
+        const city = this.props.location.city;
         // this is auto-generating south street
         // use maps.google.com API to generate a query instead of a static site
-        const MAPS_IFRAME = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.212789765612!2d-75.19255614420365!3d39.94579159495915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c643e19594bf%3A0x1a170241e0f2c523!2s${houseNumber}+${street}%2C+${city}%2C+${state}+${zipCode}!5e0!3m2!1sen!2sus!4v1555676265578!5m2!1sen!2sus`;
+        const MAPS_IFRAME = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.212789765612!2d-75.19255614420365!3d39.94579159495915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c643e19594bf%3A0x1a170241e0f2c523!2s2616+South%20St%2C+Philadelphia%2C+PA+19146!5e0!3m2!1sen!2sus!4v1555676265578!5m2!1sen!2sus`;
 
         return (
             <div className="custom-contact component-margin" id="contact">
@@ -91,7 +99,7 @@ class Contact extends Component {
                                 </div>
                                 <div className="col-xs-6 center-content flex-column">
                                     Tel: 215.530.0440<br />
-                                    E: {email}<br />
+                                    E: {'dummy'}<br />
                                 </div>
                             </div>
                             <div className="center-content contact-info-box"></div>
@@ -101,8 +109,8 @@ class Contact extends Component {
                                     <i className="fas fa-address-card fa-3x"></i>
                                 </div>
                                 <div className="col-xs-6 center-content flex-column">
-                                    {houseNumber + ' '}{street}<br />
-                                    {city}, {state}, {zipCode}<br />
+                                    {'dummy' + ' '}{'dummy'}<br />
+                                    {'dummy'}, {'dummy'}, {'dummy'}<br />
                                     USA
                                 </div>
                             </div>
@@ -129,11 +137,14 @@ class Contact extends Component {
     }
 }
 
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = (state) => {
+    return {
+        contact: state.user.contact,
+        location: state.user.location
+    }
+}
 
 export default connect(
     mapStateToProps,
-    {
-        findUser
-    }
+    { getSubdocument }
 )(Contact);

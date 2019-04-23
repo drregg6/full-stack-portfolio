@@ -3,6 +3,10 @@ import {
   Container
 } from 'reactstrap';
 
+// redux
+import { connect } from 'react-redux';
+import { getSubdocument } from '../actions/userActions';
+
 class Footer extends Component {
   render() {
     let today = new Date();
@@ -16,4 +20,13 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+    return {
+        information: state.user.general
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getSubdocument }
+)(Footer);

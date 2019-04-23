@@ -11,6 +11,10 @@ import {
   ListGroupItem
 } from 'reactstrap';
 
+// redux
+import { connect } from 'react-redux';
+import { getSubdocument } from '../actions/userActions';
+
 class About extends Component {
   render() {
     return (
@@ -83,4 +87,13 @@ class About extends Component {
   }
 }
 
-export default About;
+const mapStateToProps = (state) => {
+    return {
+        about: state.user.about
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getSubdocument }
+)(About);

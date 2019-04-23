@@ -17,6 +17,10 @@ import Image3 from '../img/image3.jpg';
 import Image4 from '../img/image4.jpg';
 import Image5 from '../img/image5.jpg';
 
+// redux
+import { connect } from 'react-redux';
+import { getSubdocument } from '../actions/userActions';
+
 class Portfolio extends Component {
   render() {
     return (
@@ -81,4 +85,13 @@ class Portfolio extends Component {
   }
 }
 
-export default Portfolio;
+const mapStateToProps = (state) => {
+    return {
+        portfolio: state.user.portfolio
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { getSubdocument }
+)(Portfolio);

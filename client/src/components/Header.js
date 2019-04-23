@@ -16,12 +16,10 @@ class Header extends Component {
     }
 
     render() {
-        let {user} = this.props.user;
+        let {firstName, lastName} = this.props.general;
 
         // this can only be found once all the objects are generated
         // is it possible to deconstruct in a tertiary statement?
-        const firstName = user && user.general ? user.general.firstName : null;
-        const lastName = user && user.general ? user.general.lastName : null;
 
         return (
             <div className="custom-container primary-background" id="home">
@@ -40,7 +38,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        general: state.user.general
     }
 }
 
