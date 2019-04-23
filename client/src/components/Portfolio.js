@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PortfolioItem from './PortfolioItem';
 import {
     Container,
     CardDeck,
@@ -11,68 +12,37 @@ import {
     CardSubtitle,
     Button
 } from 'reactstrap';
-import Image1 from '../img/image1.jpg';
-import Image2 from '../img/image2.jpg';
-import Image3 from '../img/image3.jpg';
-import Image4 from '../img/image4.jpg';
-import Image5 from '../img/image5.jpg';
 
 // redux
 import { connect } from 'react-redux';
 import { getSubdocument } from '../actions/userActions';
 
 class Portfolio extends Component {
+  componentDidMount() {
+    this.props.getSubdocument('daveregg', 'portfolio');
+  }
+
   render() {
+    const apps = this.props.portfolio !== undefined ? this.props.portfolio.apps : [];
+    const firstThreeApps = apps !== undefined ? apps.slice(0,3) : [];
+    const lastThreeApps = apps !== undefined ? apps.slice(3) : [];
+
+    const renderFirstThree = firstThreeApps !== undefined ? (
+      firstThreeApps.map(app => <PortfolioItem app={app} key={app._id} />)
+    ) : (<h1>Workin on it</h1>)
+    const renderLastThree = lastThreeApps !== undefined ? (
+      lastThreeApps.map(app => <PortfolioItem app={app} key={app._id} />)
+    ) : (
+      <h1>Workin on it</h1>
+    );
+
     return (
       <div className="custom-portfolio component-margin header-invasion-margin-top" id="portfolio">
         <CardDeck>
-          <a href="http://lit-beach-33230.herokuapp.com" className="portfolio-card-link card">
-            <CardImg top width="100%" src={Image1} alt="Placehold it!" />
-            <CardImgOverlay className="flex-column">
-              <div className="portfolio-title portfolio-font-color">
-                <CardTitle>Museum App</CardTitle>
-                <CardText>React, APIs, React Router</CardText>
-              </div>
-            </CardImgOverlay>
-          </a>
-          <a href="http://shielded-woodland-41878.herokuapp.com/" className="portfolio-card-link card">
-            <CardImg top width="100%" src={Image2} alt="Placehold it!" />
-            <CardImgOverlay className="flex-column">
-              <div className="portfolio-title portfolio-font-color">
-                <CardTitle>Weather App</CardTitle>
-                <CardText>React, APIs</CardText>
-              </div>
-            </CardImgOverlay>
-          </a>
-          <a href="#" className="portfolio-card-link card">
-            <CardImg top width="100%" src={Image3} alt="Placehold it!" />
-            <CardImgOverlay className="flex-column">
-              <div className="portfolio-title portfolio-font-color">
-                <CardTitle>Drumkit</CardTitle>
-                <CardText>React, Audio</CardText>
-              </div>
-            </CardImgOverlay>
-          </a>
+          {renderFirstThree}
         </CardDeck>
         <CardDeck className="inner-margin">
-          <a href="#" className="portfolio-card-link card">
-            <CardImg top width="100%" src={Image4} alt="Placehold it!" />
-            <CardImgOverlay className="flex-column">
-              <div className="portfolio-title portfolio-font-color">
-                <CardTitle>Portfolio</CardTitle>
-                <CardText>React, Redux, MongoDB, Mongoose</CardText>
-              </div>
-            </CardImgOverlay>
-          </a>
-          <a href="#" className="portfolio-card-link card">
-            <CardImg top width="100%" src={Image5} alt="Placehold it!" />
-            <CardImgOverlay className="flex-column">
-              <div className="portfolio-title portfolio-font-color">
-                <CardTitle>US GDP</CardTitle>
-                <CardText>D3.js</CardText>
-              </div>
-            </CardImgOverlay>
-          </a>
+          {renderLastThree}
           <a href="https://github.com/drregg6" className="portfolio-card-link card see-more-card">
             <div className="portfolio-title">
               <i className="far fa-grin-alt fa-5x inner-margin"></i>
