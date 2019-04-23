@@ -17,18 +17,36 @@ const UserSchema = new Schema({
         unique: true
     },
     general: {
+        key: {
+            type: String,
+            default: 'general'
+        },
         firstName: String,
         lastName: String,
         age: Number,
         gender: String
     },
-    apps: [AppSchema],
+    portfolio: {
+        key: {
+            type: String,
+            default: 'portfolio'
+        },
+        apps: [AppSchema]
+    },
     information: {
+        key: {
+            type: String,
+            default: 'information'
+        },
         skills: Array,
         technologies: Array,
         languages: Array
     },
     contact: {
+        key: {
+            type: String,
+            default: 'contact'
+        },
         email: String,
         telephone: String,
         github: String,
@@ -37,6 +55,10 @@ const UserSchema = new Schema({
         facebook: String
     },
     location: {
+        key: {
+            type: String,
+            default: 'location'
+        },
         houseNumber: Number,
         street: String,
         apartment: String,

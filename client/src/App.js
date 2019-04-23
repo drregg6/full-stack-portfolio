@@ -13,16 +13,11 @@ DESIGN INSPIRATION:
 
 TODO:
 - Style Contact Form
-- Footer information
-    - font awesome
-    - design inspiration
-- Portfolio Links
-    - Museum App
-    - Weather App
-    - Drumkit App
-    - Portfolio App
-    - Miscellaneous (Brewery? Happy Hr?)
-    - See more at Github! >
+- Complete email submission in Contact form
+- Create User creation / edit pages
+- Create "See more portfolios..." page
+- Make DaveRegg Portfolio default route
+- this.props.history('/')
 
 */
 

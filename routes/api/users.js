@@ -25,7 +25,7 @@ router.get('/:username', (req, res) => {
 })
 
 // @route  POST api/users
-// @desc   Post a User
+// @desc   Register a User
 // @access PUBLIC
 router.post('/', (req, res) => {
     const { username, general, apps, information, contact, location } = req.body;
@@ -44,11 +44,47 @@ router.post('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
-// @route  DELETE api/users/:id
+// @route  GET api/users/edit/:username
+// @desc   Get a form to update a user
+// @access PUBLIC
+router.get('/edit/:username', (req, res) => {
+    res.render('/edit_user');
+});
+
+// @route  POST api/users/edit/:username
+// @desc   Update a User
+// @access PUBLIC
+router.post('/edit/:username', (req, res) => {
+    let updatedUser = req.body;
+    User.update({username: req.params.username}, updatedUser)
+        .then(user => {
+            res.json(user);
+        })
+        .catch(err => {
+            console.log('something went wrong');
+        });
+
+    User.findOne({username: req.params.username})
+        .then(user => {
+            let updatedUser = req.body;
+
+            user.update()
+        })
+    // User.findOne({username: req.params.username})
+    //     .then(user => {
+    //         res.send(user);
+    //     });
+    // User.update({username: req.params.username}, user)
+    //     .then(user => {
+    //         user.update()
+    //     })
+});
+
+// @route  DELETE api/users/:username
 // @desc   Delete a User
 // @access PUBLIC
-router.delete('/:id', (req, res) => {
-    User.findById(req.params.id)
+router.delete('/:username', (req, res) => {
+    User.findOne({username: req.params.username})
         .then(user => user.remove().then(() => res.json({ success: true })))
         .catch(err => res.status(404).json({ success: false }));
 });
