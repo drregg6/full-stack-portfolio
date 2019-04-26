@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewUser from './NewUser';
 import {
     Container,
     Collapse,
@@ -57,6 +58,9 @@ class CustomNav extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="#contact">Contact</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NewUser />
                                 </NavItem>
                             </Nav>
                         </Collapse>
