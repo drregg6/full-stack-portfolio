@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import {
-  Container,
   CardGroup,
   Card,
-  CardBody,
   CardTitle,
-  CardSubtitle,
   CardText,
   ListGroup,
   ListGroupItem
@@ -26,20 +23,20 @@ class About extends Component {
     const firstName = this.props.general ? this.props.general.firstName : 'Francis';
 
     let renderSkills = skills !== undefined ? (
-        skills.map(skill => {
-          return <ListGroupItem>{skill}</ListGroupItem>
+        skills.map((skill, i) => {
+          return <ListGroupItem key={i}>{skill}</ListGroupItem>
         })
       ) : ( <ListGroupItem>Workin' on it!</ListGroupItem> );
 
     let renderTechnologies = technologies !== undefined ? (
-      technologies.map(tech => {
-        return <ListGroupItem>{tech}</ListGroupItem>
+      technologies.map((tech, i) => {
+        return <ListGroupItem key={i}>{tech}</ListGroupItem>
       })
     ) : ( <ListGroupItem>Workin' on it</ListGroupItem> );
 
     let renderLanguages = languages !== undefined ? (
-      languages.map(language => {
-        return <ListGroupItem>{language}</ListGroupItem>
+      languages.map((language, i) => {
+        return <ListGroupItem key={i}>{language}</ListGroupItem>
       })
     ) : ( <ListGroupItem>Workin' real hard</ListGroupItem> );
 

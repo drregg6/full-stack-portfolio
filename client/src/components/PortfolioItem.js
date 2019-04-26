@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import {
-    Container,
-    CardDeck,
-    Card,
     CardImg,
     CardImgOverlay,
     CardText,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    Button
+    CardTitle
 } from 'reactstrap';
 import Image1 from '../img/image1.jpg';
 
 class PortfolioItem extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { name, url, technologies } = this.props.app;

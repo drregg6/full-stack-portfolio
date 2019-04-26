@@ -1,6 +1,7 @@
 import {
     GET_USERS,
     GET_USER,
+    ADD_USER,
     GET_SUBDOCUMENT
 } from '../actions/types.js';
 
@@ -25,6 +26,12 @@ const userReducer = (state = initState, action) => {
             return {
                 ...state,
                 user: action.payload
+            }
+        case ADD_USER:
+            let newUsers = [...state.users, action.payload];
+            return {
+                ...state,
+                users: newUsers
             }
         case GET_SUBDOCUMENT:
             let key = action.payload.key;

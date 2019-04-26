@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import CustomNav from './CustomNav';
 import {
-    Container,
     Button
 } from 'reactstrap';
 

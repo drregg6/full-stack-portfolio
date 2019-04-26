@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import PortfolioItem from './PortfolioItem';
 import {
-    Container,
     CardDeck,
-    Card,
-    CardImg,
-    CardImgOverlay,
-    CardText,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    Button
+    CardTitle
 } from 'reactstrap';
 
 // redux

@@ -1,6 +1,7 @@
 import {
     GET_USERS,
     GET_USER,
+    ADD_USER,
     GET_SUBDOCUMENT
 } from './types';
 import axios from 'axios';
@@ -26,6 +27,16 @@ export const findUser = username => dispatch => {
         .catch(err => {
             console.log(`There's been an error: ${err}`);
         });
+}
+
+export const addUser = newUser => dispatch => {
+
+    axios.post(`/api/users`, newUser)
+        .then(res => dispatch({
+            type: ADD_USER,
+            payload: res.data
+        }))
+        .catch(err => console.log(`There's been an ${err}`));
 }
 
 export const getSubdocument = (username, key='general') => dispatch => {
