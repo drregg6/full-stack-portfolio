@@ -17,9 +17,7 @@ import {
  } from '../actions/userActions';
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     componentDidMount() {
         this.props.getSubdocument('daveregg', 'contact');
         this.props.getSubdocument('daveregg', 'location');
@@ -52,7 +50,7 @@ class Contact extends Component {
                         <h2 className="header-subtext">Contact me</h2>
                     </div>
                     <div className="contact-form-row row inner-margin">
-                        <Form className="col-md-6 col-sm-12" method="POST" action="send">
+                        <Form className="col-md-6 col-sm-12">
                             <FormGroup>
                                 <Label for="formName">Name</Label>
                                 <Input
@@ -84,7 +82,7 @@ class Contact extends Component {
                                 <Label for="formMessage">Message</Label>
                                 <Input
                                     type="textarea"
-                                    name="message"
+                                    name="msg"
                                     id="formMessage"
                                 />
                             </FormGroup>
@@ -146,3 +144,33 @@ export default connect(
     mapStateToProps,
     { getSubdocument }
 )(Contact);
+
+
+        // this.state = {
+        //     name: '',
+        //     email: '',
+        //     subject: '',
+        //     msg: ''
+        // };
+
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+
+    // handleChange = (ev) => {
+    //     this.setState({
+    //         [ev.target.name]: ev.target.value
+    //     })
+    // }
+
+    // handleSubmit = (ev) => {
+    //     ev.preventDefault();
+
+    //     this.setState({
+    //         name: '',
+    //         email: '',
+    //         subject: '',
+    //         msg: ''
+    //     })
+
+    //     console.log(ev);
+    // }
