@@ -14,6 +14,8 @@ class Header extends Component {
     }
 
     render() {
+        console.log(`the props are: ${this.props}`);
+        console.log(this.props.history); // comes from BrowserRouter, Route
         let {firstName, lastName} = this.props.general;
 
         return (
