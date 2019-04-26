@@ -52,7 +52,7 @@ class Contact extends Component {
                         <h2 className="header-subtext">Contact me</h2>
                     </div>
                     <div className="contact-form-row row inner-margin">
-                        <Form className="col-md-6 col-sm-12">
+                        <Form className="col-md-6 col-sm-12" method="POST" action="send">
                             <FormGroup>
                                 <Label for="formName">Name</Label>
                                 <Input
@@ -88,7 +88,7 @@ class Contact extends Component {
                                     id="formMessage"
                                 />
                             </FormGroup>
-                            <Button outline className="btn" color="primary">Submit</Button>
+                            <Button outline className="btn" color="primary" type="submit">Submit</Button>
                         </Form>
                         <div className="col-md-6 col-sm-12 contact-info-boxes">
                             <div className="center-content row contact-info-box flex-column">

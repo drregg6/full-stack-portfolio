@@ -14,6 +14,8 @@ const port = process.env.PORT || 5000;
 // routes
 const users = require('./routes/api/users');
 app.use('/api/users', users);
+const email = require('./routes/contact/email');
+app.use('/contact/email', email);
 
 mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log('connected'))
