@@ -23,12 +23,8 @@ TODO:
 
 import React, { Component } from 'react';
 import CustomNav from './components/CustomNav';
-// import Header from './components/Header';
-// import Portfolio from './components/Portfolio';
-// import About from './components/About';
-// import Contact from './components/Contact';
-// import Footer from './components/Footer';
 import Main from './components/Main';
+import Edit from './components/Edit';
 
 // react-router-dom
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -65,3 +61,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Route path="/:username/edit" component={Edit} />
