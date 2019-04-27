@@ -51,8 +51,11 @@ class App extends Component {
         <Router>
           <div className="App">
             <CustomNav />
-            <Route exact path="/" component={Main} />
-            <Route path="/:username" component={Main} />
+            <Switch>
+              <Route exact path="/" component={Main} />
+              <Route path="/edit/:username" component={Edit} />
+              <Route path="/:username" component={Main} />
+            </Switch>
           </div>
         </Router>
       </Provider>
@@ -62,4 +65,3 @@ class App extends Component {
 
 export default App;
 
-// <Route path="/:username/edit" component={Edit} />

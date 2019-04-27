@@ -309,7 +309,7 @@ nav {
 
 
 
-/*  Footer rules */
+/* Footer rules */
 .custom-footer {
     margin: 2.5rem;
 }
@@ -321,6 +321,15 @@ nav {
     color: #444;
 }
 
+
+/* Edit page */
+.edit-page {
+    margin: 8rem 5rem;
+}
+
+.edit-page button {
+    margin-top: 2rem;
+}
 
 
 /* tablet */
@@ -378,5 +387,9 @@ nav {
     }
     .contact-icons div:last-child {
         margin-bottom: 0;
+    }
+
+    .edit-page {
+        margin: 4rem auto;
     }
 }
