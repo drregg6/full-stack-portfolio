@@ -18,8 +18,8 @@ import {
 class Contact extends Component {
 
     componentDidMount() {
-        this.props.getSubdocument('daveregg', 'contact');
-        this.props.getSubdocument('daveregg', 'location');
+        this.props.getSubdocument(this.props.username, 'contact');
+        this.props.getSubdocument(this.props.username, 'location');
     }
 
     telephoneFormatter = (str) => {

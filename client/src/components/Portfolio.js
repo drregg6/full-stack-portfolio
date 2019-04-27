@@ -11,7 +11,7 @@ import { getSubdocument } from '../actions/userActions';
 
 class Portfolio extends Component {
   componentDidMount() {
-    this.props.getSubdocument('daveregg', 'portfolio');
+    this.props.getSubdocument(this.props.username, 'portfolio');
   }
 
   render() {

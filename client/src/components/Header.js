@@ -10,12 +10,10 @@ import { fetchUsers, findUser } from '../actions/userActions';
 class Header extends Component {
 
     componentDidMount() {
-        this.props.findUser('daveregg');
+        this.props.findUser(this.props.username);
     }
 
     render() {
-        console.log(`the props are: ${this.props}`);
-        console.log(this.props.history); // comes from BrowserRouter, Route
         let {firstName, lastName} = this.props.general;
 
         return (

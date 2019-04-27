@@ -23,11 +23,15 @@ TODO:
 
 import React, { Component } from 'react';
 import CustomNav from './components/CustomNav';
-import Header from './components/Header';
-import Portfolio from './components/Portfolio';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+// import Header from './components/Header';
+// import Portfolio from './components/Portfolio';
+// import About from './components/About';
+// import Contact from './components/Contact';
+// import Footer from './components/Footer';
+import Main from './components/Main';
+
+// react-router-dom
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,14 +52,13 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="App">
-          <CustomNav />
-          <Header />
-          <Portfolio />
-          <About />
-          <Contact />
-          <Footer />
-        </div>
+        <Router>
+          <div className="App">
+            <CustomNav />
+            <Route exact path="/" component={Main} />
+            <Route path="/:username" component={Main} />
+          </div>
+        </Router>
       </Provider>
     );
   }

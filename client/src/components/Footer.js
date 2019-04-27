@@ -6,8 +6,8 @@ import { getSubdocument } from '../actions/userActions';
 
 class Footer extends Component {
   componentDidMount() {
-    this.props.getSubdocument('daveregg');
-    this.props.getSubdocument('daveregg', 'contact');
+    this.props.getSubdocument(this.props.username);
+    this.props.getSubdocument(this.props.username, 'contact');
   }
 
   render() {

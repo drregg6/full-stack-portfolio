@@ -14,8 +14,8 @@ import { getSubdocument } from '../actions/userActions';
 
 class About extends Component {
   componentDidMount() {
-    this.props.getSubdocument('daveregg', 'information');
-    this.props.getSubdocument('daveregg');
+    this.props.getSubdocument(this.props.username, 'information');
+    this.props.getSubdocument(this.props.username);
   }
 
   render() {
