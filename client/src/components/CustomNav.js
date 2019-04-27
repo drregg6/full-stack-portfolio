@@ -1,3 +1,13 @@
+/*
+
+IF (logged_in) {
+    <Button>Edit User</Button>
+} ELSE {
+    <Button>New User Modal</Button>
+}
+
+*/
+
 import React, { Component } from 'react';
 import NewUser from './NewUser';
 import {

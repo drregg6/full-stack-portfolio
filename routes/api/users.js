@@ -19,7 +19,10 @@ router.get('/', (req, res) => {
 router.get('/:username', (req, res) => {
     User.findOne({username: req.params.username})
         .then(user => {
-            return res.json(user);
+            return user !== null ? res.json(user) : (
+                User.findOne({username: 'daveregg'})
+                    .then(user => res.json(user))
+            );
         })
         .catch(err => console.log(err));
 })
