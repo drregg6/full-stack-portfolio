@@ -1,3 +1,9 @@
+/*
+
+create a new Component ~FormGroup~
+
+*/
+
 import React, { Component } from 'react';
 import {
   Container,
@@ -34,6 +40,9 @@ class Edit extends Component {
       state: '',
       country: '',
       zipCode: '',
+      technologies: '',
+      languages: '',
+      skills: '',
 
       portfolioName: '',
       portfolioUrl: '',
@@ -81,8 +90,20 @@ class Edit extends Component {
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Workin on it';
     const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Workin on it';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Workin on it';
+
+    const information = this.props.user.information !== undefined ? this.props.user.information : 'Workin on it';
+    const skills = information.skills !== undefined ? information.skills : 'Workin on it';
+    const skillsString = skills !== 'Workin on it' && skills.length !== 0 ? skills.join(', ') : '';
+
+    const technologies = information.technologies !== undefined ? information.technologies : 'Workin on it';
+    const technologiesString = technologies !== 'Workin on it' && technologies.length !== 0 ? technologies.join(', ') : '';
+
+    const languages = information.languages !== undefined ? information.languages : 'Workin on it';
+    const languagesString = languages !== 'Workin on it' && languages.length !== 0 ? languages.join(', ') : '';
+    console.log(languages);
+
     const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Workin on it';
-    const apps = portfolio.apps !== undefined ? portfolio.apps : [{name: 'Workin on it', _id: 0}];
+    const apps = portfolio.apps !== undefined && portfolio.apps.length !== 0 ? portfolio.apps : [{name: 'Add an App!', _id: 0}];
 
     const generalInfoForm = (
       <Form className="inner-margin" onClick={this.handleSubmit}>
@@ -274,6 +295,42 @@ class Edit extends Component {
               name="country"
               id="country"
               defaultValue={location.country}
+              onChange={this.handleChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} for="skills">Skills:</Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              name="skills"
+              id="skills"
+              defaultValue={skillsString}
+              onChange={this.handleChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} for="technologies">Technologies:</Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              name="technologies"
+              id="technologies"
+              defaultValue={technologiesString}
+              onChange={this.handleChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} for="languages">Languages:</Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              name="languages"
+              id="languages"
+              defaultValue={languagesString}
               onChange={this.handleChange}
             />
           </Col>
