@@ -43,6 +43,7 @@ class Edit extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.dropdownChange = this.dropdownChange.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +65,17 @@ class Edit extends Component {
     });
   }
 
+  dropdownChange = ev => {
+    const app = this.props.user.portfolio !== undefined ? this.props.user.portfolio.apps.filter(app => ev.target.value === app.name)[0] : 'Workin on it';
+    const techString = app.technologies.join(', ')
+    this.setState({
+      portfolioName: app.name,
+      portfolioUrl: app.url,
+      portfolioImage: app.image,
+      portfolioTechnologies: techString
+    })
+  }
+
   render() {
     const user = this.props.user !== undefined ? this.props.user : 'Workin on it';
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Workin on it';
@@ -71,7 +83,6 @@ class Edit extends Component {
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Workin on it';
     const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Workin on it';
     const apps = portfolio.apps !== undefined ? portfolio.apps : [{name: 'Workin on it', _id: 0}];
-    console.log(apps);
 
     const generalInfoForm = (
       <Form className="inner-margin" onClick={this.handleSubmit}>
@@ -280,6 +291,7 @@ class Edit extends Component {
               type="select"
               id="portfolioOptions"
               name="portfolioOptions"
+              onChange={this.dropdownChange}
             >
               {apps.map(app => {
                 return (
@@ -302,7 +314,7 @@ class Edit extends Component {
               type="text"
               id="portfolioName"
               name="portfolioName"
-              placeholder="App Name"
+              defaultValue={this.state.portfolioName}
               onChange={this.handleChange}
             />
           </Col>
@@ -314,7 +326,7 @@ class Edit extends Component {
               type="text"
               id="portfolioUrl"
               name="portfolioUrl"
-              placeholder="App url"
+              defaultValue={this.state.portfolioUrl}
               onChange={this.handleChange}
             />
           </Col>
@@ -326,7 +338,7 @@ class Edit extends Component {
               type="text"
               id="portfolioImage"
               name="portfolioImage"
-              placeholder="Add an image"
+              defaultValue={this.state.portfolioImage}
               onChange={this.handleChange}
             />
           </Col>
@@ -338,7 +350,7 @@ class Edit extends Component {
               type="text"
               id="portfolioTechnologies"
               name="portfolioTechnologies"
-              placeholder="Separate sample tech with commas"
+              defaultValue={this.state.portfolioTechnologies}
               onChange={this.handleChange}
             />
           </Col>

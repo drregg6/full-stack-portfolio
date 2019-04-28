@@ -143,33 +143,3 @@ export default connect(
     mapStateToProps,
     { getSubdocument }
 )(Contact);
-
-
-        // this.state = {
-        //     name: '',
-        //     email: '',
-        //     subject: '',
-        //     msg: ''
-        // };
-
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-
-    // handleChange = (ev) => {
-    //     this.setState({
-    //         [ev.target.name]: ev.target.value
-    //     })
-    // }
-
-    // handleSubmit = (ev) => {
-    //     ev.preventDefault();
-
-    //     this.setState({
-    //         name: '',
-    //         email: '',
-    //         subject: '',
-    //         msg: ''
-    //     })
-
-    //     console.log(ev);
-    // }
