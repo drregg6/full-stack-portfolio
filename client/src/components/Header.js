@@ -3,18 +3,10 @@ import {
     Button
 } from 'reactstrap';
 
-// redux
-import { connect } from 'react-redux';
-import { fetchUsers, findUser } from '../actions/userActions';
-
 class Header extends Component {
 
-    componentDidMount() {
-        this.props.findUser(this.props.username);
-    }
-
     render() {
-        let {firstName, lastName} = this.props.general;
+        const {firstName, lastName} = this.props.general !== undefined ? this.props.general : 'Loading user...';
 
         return (
             <div className="custom-container primary-background" id="home">
@@ -31,16 +23,4 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        general: state.user.general
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    {
-        fetchUsers,
-        findUser
-    }
-)(Header);
+export default Header;

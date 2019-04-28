@@ -16,8 +16,6 @@ TODO:
 - Complete email submission in Contact form
 - Create User creation / edit pages
 - Create "See more portfolios..." page
-- Make DaveRegg Portfolio default route
-- this.props.history('/')
 
 */
 
@@ -40,12 +38,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 class App extends Component {
-  componentWillMount() {
-      axios.get('/api/users')
-        .then(res => {
-          console.log(res.data);
-        });
-  }
+
   render() {
     return (
       <Provider store={store}>

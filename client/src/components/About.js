@@ -8,19 +8,11 @@ import {
   ListGroupItem
 } from 'reactstrap';
 
-// redux
-import { connect } from 'react-redux';
-import { getSubdocument } from '../actions/userActions';
-
 class About extends Component {
-  componentDidMount() {
-    this.props.getSubdocument(this.props.username, 'information');
-    this.props.getSubdocument(this.props.username);
-  }
 
   render() {
-    const { skills, technologies, languages } = this.props.information;
-    const firstName = this.props.general ? this.props.general.firstName : 'Francis';
+    const { skills, technologies, languages } = this.props.information !== undefined ? this.props.information : 'Loading user...';
+    const firstName = this.props.general ? this.props.general.firstName : 'Loading user...';
 
     let renderSkills = skills !== undefined ? (
         skills.map((skill, i) => {
@@ -98,14 +90,4 @@ class About extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        information: state.user.information,
-        general: state.user.general
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    { getSubdocument }
-)(About);
+export default About;

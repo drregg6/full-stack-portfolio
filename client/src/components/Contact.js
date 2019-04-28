@@ -7,20 +7,8 @@ import {
     Label,
     Input
 } from 'reactstrap';
-// import { Link } from 'react-router-dom';
-
-// redux
-import { connect } from 'react-redux';
-import {
-    getSubdocument
- } from '../actions/userActions';
 
 class Contact extends Component {
-
-    componentDidMount() {
-        this.props.getSubdocument(this.props.username, 'contact');
-        this.props.getSubdocument(this.props.username, 'location');
-    }
 
     telephoneFormatter = (str) => {
         if (str.length === 10) {
@@ -33,10 +21,10 @@ class Contact extends Component {
     }
 
     render() {
-        const { houseNumber, street, city, state, country, zipCode } = this.props.location;
-        const { email, github, twitter, linkedin, facebook } = this.props.contact;
+        const { houseNumber, street, city, state, country, zipCode } = this.props.location !== undefined ? this.props.location : 'Loading user...';
+        const { email, github, twitter, linkedin, facebook } = this.props.contact !== undefined ? this.props.contact : 'Loading user...';
 
-        const telephone = this.props.contact.telephone !== undefined ? this.telephoneFormatter(this.props.contact.telephone) : '111.111.1111';
+        const telephone = this.props.contact !== undefined ? this.telephoneFormatter(this.props.contact.telephone) : '111.111.1111';
         // this is auto-generating south street
         // use maps.google.com API to generate a query instead of a static site
         const MAPS_IFRAME = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.212789765612!2d-75.19255614420365!3d39.94579159495915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c643e19594bf%3A0x1a170241e0f2c523!2s2616+South%20St%2C+Philadelphia%2C+PA+19146!5e0!3m2!1sen!2sus!4v1555676265578!5m2!1sen!2sus`;
@@ -132,14 +120,4 @@ class Contact extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        contact: state.user.contact,
-        location: state.user.location
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    { getSubdocument }
-)(Contact);
+export default Contact;

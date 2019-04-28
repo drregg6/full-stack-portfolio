@@ -1,10 +1,3 @@
-/*
-
-I can make the findUser call here
-and pass each object down to each component
-
-*/
-
 import React, { Component } from 'react';
 import Header from './Header';
 import Portfolio from './Portfolio';
@@ -12,24 +5,42 @@ import About from './About';
 import Contact from './Contact';
 import Footer from './Footer';
 
+// redux
+import { connect } from 'react-redux';
+import { findUser } from '../actions/userActions';
+
 class Main extends Component {
-  render() {
+  componentDidMount() {
     const username = this.props.match.params.username !== undefined ? (
-        this.props.match.params.username
-      ) : (
-        'daveregg'
-      );
-    console.log(username);
+      this.props.match.params.username
+    ) : (
+      'daveregg'
+    )
+    this.props.findUser(username);
+  }
+
+  render() {
+    const user = this.props.user !== undefined ? this.props.user : 'Loading user...';
+
     return(
       <div>
-        <Header username={username} />
-        <Portfolio username={username} />
-        <About username={username} />
-        <Contact username={username} />
-        <Footer username={username} />
+        <Header general={user.general} />
+        <Portfolio portfolio={user.portfolio} />
+        <About general={user.general} information={user.information} />
+        <Contact contact={user.contact} location={user.location} />
+        <Footer general={user.general} contact={user.contact} />
       </div>
     )
   }
 }
 
-export default Main;
+const mapStateToProps = state => {
+  return {
+    user: state.user.user
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { findUser }
+)(Main);

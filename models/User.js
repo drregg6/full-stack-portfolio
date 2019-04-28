@@ -1,3 +1,13 @@
+/*
+
+this also needs to be refactored
+general should be information used throughout the app
+firstName, lastName, email, github
+github, twitter, facebook, and linkedin should only be names
+not full urls
+
+*/
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

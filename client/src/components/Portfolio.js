@@ -5,14 +5,7 @@ import {
     CardTitle
 } from 'reactstrap';
 
-// redux
-import { connect } from 'react-redux';
-import { getSubdocument } from '../actions/userActions';
-
 class Portfolio extends Component {
-  componentDidMount() {
-    this.props.getSubdocument(this.props.username, 'portfolio');
-  }
 
   render() {
     const apps = this.props.portfolio !== undefined ? this.props.portfolio.apps : [];
@@ -47,13 +40,4 @@ class Portfolio extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        portfolio: state.user.portfolio
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    { getSubdocument }
-)(Portfolio);
+export default Portfolio;

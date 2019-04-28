@@ -47,40 +47,23 @@ router.post('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
-// @route  GET api/users/edit/:username
-// @desc   Get a form to update a user
-// @access PUBLIC
-router.get('/edit/:username', (req, res) => {
-    res.render('/edit_user');
-});
-
 // @route  POST api/users/edit/:username
 // @desc   Update a User
 // @access PUBLIC
-router.post('/edit/:username', (req, res) => {
-    let updatedUser = req.body;
-    User.update({username: req.params.username}, updatedUser)
-        .then(user => {
-            res.json(user);
-        })
-        .catch(err => {
-            console.log('something went wrong');
-        });
+router.post('/edit/', (req, res) => {
 
     User.findOne({username: req.params.username})
         .then(user => {
             let updatedUser = req.body;
 
-            user.update()
-        })
-    // User.findOne({username: req.params.username})
-    //     .then(user => {
-    //         res.send(user);
-    //     });
-    // User.update({username: req.params.username}, user)
-    //     .then(user => {
-    //         user.update()
-    //     })
+            user.update({username: req.params.username}, updatedUser)
+                .then(user => {
+                    res.json(user);
+                })
+                .catch(err => {
+                    console.log('something went wrong')
+                })
+        });
 });
 
 // @route  DELETE api/users/:username
