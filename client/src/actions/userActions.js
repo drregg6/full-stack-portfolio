@@ -2,6 +2,7 @@ import {
     GET_USERS,
     GET_USER,
     ADD_USER,
+    UPDATE_USER,
     GET_SUBDOCUMENT
 } from './types';
 import axios from 'axios';
@@ -37,6 +38,15 @@ export const addUser = newUser => dispatch => {
             payload: res.data
         }))
         .catch(err => console.log(`There's been an ${err}`));
+}
+
+export const updateUser = updatedUser => dispatch => {
+    axios.post(`/api/users/edit/`, updatedUser)
+        .then(res => dispatch({
+            type: UPDATE_USER,
+            payload: res.data
+        }))
+        .catch(err => console.log(`There's been an ${err}`))
 }
 
 export const getSubdocument = (username, key='general') => dispatch => {
