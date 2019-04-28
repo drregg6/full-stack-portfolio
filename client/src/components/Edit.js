@@ -1,6 +1,9 @@
 /*
 
 create a new Component ~FormGroup~
+make a call to findUser and get the user object
+each Form will have an object passed down
+each form will have a FormGroup component
 
 */
 

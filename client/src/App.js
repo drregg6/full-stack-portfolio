@@ -25,6 +25,7 @@ import React, { Component } from 'react';
 import CustomNav from './components/CustomNav';
 import Main from './components/Main';
 import Edit from './components/Edit';
+import Error from './components/Error';
 
 // react-router-dom
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -53,8 +54,9 @@ class App extends Component {
             <CustomNav />
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route path="/edit/:username" component={Edit} />
-              <Route path="/:username" component={Main} />
+              <Route path="/users/edit/:username" component={Edit} />
+              <Route path="/users/:username" component={Main} />
+              <Route path="/*" component={Error} />
             </Switch>
           </div>
         </Router>

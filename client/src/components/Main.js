@@ -1,3 +1,10 @@
+/*
+
+I can make the findUser call here
+and pass each object down to each component
+
+*/
+
 import React, { Component } from 'react';
 import Header from './Header';
 import Portfolio from './Portfolio';
