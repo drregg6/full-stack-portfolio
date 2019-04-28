@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import GeneralForm from './GeneralForm';
 import LocationForm from './LocationForm';
 import ContactForm from './ContactForm';
-import AboutForm from './AboutForm';
+import InformationForm from './InformationForm';
 import PortfolioForm from './PortfolioForm';
 import { Container } from 'reactstrap';
 
@@ -25,35 +25,16 @@ class Edit extends Component {
     this.props.findUser(this.props.match.params.username);
   }
 
-  dropdownChange = ev => {
-    const app = this.props.user.portfolio !== undefined ? this.props.user.portfolio.apps.filter(app => ev.target.value === app.name)[0] : 'Workin on it';
-    const techString = app.technologies.join(', ')
-    this.setState({
-      portfolioName: app.name,
-      portfolioUrl: app.url,
-      portfolioImage: app.image,
-      portfolioTechnologies: techString
-    })
-  }
-
   render() {
     // const user = this.props.user !== undefined ? this.props.user : 'Workin on it';
-    const general = this.props.user.general !== undefined ? this.props.user.general : 'Workin on it';
-    const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Workin on it';
+    const general = this.props.user.general !== undefined ? this.props.user.general : 'Loading user...';
+    const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Loading user...';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Loading user...';
 
     const information = this.props.user.information !== undefined ? this.props.user.information : 'Workin on it';
-    // const skills = information.skills !== undefined ? information.skills : 'Workin on it';
-    // const skillsString = skills !== 'Workin on it' && skills.length !== 0 ? skills.join(', ') : '';
 
-    // const technologies = information.technologies !== undefined ? information.technologies : 'Workin on it';
-    // const technologiesString = technologies !== 'Workin on it' && technologies.length !== 0 ? technologies.join(', ') : '';
 
-    // const languages = information.languages !== undefined ? information.languages : 'Workin on it';
-    // const languagesString = languages !== 'Workin on it' && languages.length !== 0 ? languages.join(', ') : '';
-    // console.log(languages);
-
-    const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Workin on it';
+    const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Loading user...';
     // const apps = portfolio.apps !== undefined && portfolio.apps.length !== 0 ? portfolio.apps : [{name: 'Add an App!', _id: 0}];
 
     return (
@@ -61,9 +42,9 @@ class Edit extends Component {
         <Container>
           <GeneralForm general={general} />
           <LocationForm location={location} />
-          <ContactForm />
-          <AboutForm />
-          <PortfolioForm />
+          <ContactForm contact={contact} />
+          <InformationForm information={information} />
+          <PortfolioForm portfolio={portfolio} />
         </Container>
       </div>
     )

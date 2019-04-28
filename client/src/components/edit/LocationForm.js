@@ -11,8 +11,7 @@ import {
 class LocationForm extends Component {
 
   render() {
-    const { houseNumber, street, apartment, city, state, country, zipCode } = this.props.location !== undefined ? this.props.location : 'Loading user...';
-    const renderFormGroup = this.props.location !== undefined ? (
+    const renderFormGroup = this.props.location !== 'Loading user...' ? (
       Object.keys(this.props.location).map((key, i) => {
         if (key === 'key') return;
         return (
