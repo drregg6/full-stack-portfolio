@@ -8,6 +8,11 @@ each form will have a FormGroup component
 */
 
 import React, { Component } from 'react';
+import GeneralForm from './GeneralForm';
+import LocationForm from './LocationForm';
+import ContactForm from './ContactForm';
+import AboutForm from './AboutForm';
+import PortfolioForm from './PortfolioForm';
 import {
   Container,
   Form,
@@ -20,7 +25,7 @@ import {
 
 // redux
 import { connect } from 'react-redux';
-import { findUser } from '../actions/userActions';
+import { findUser } from '../../actions/userActions';
 
 class Edit extends Component {
   constructor(props) {
@@ -419,11 +424,14 @@ class Edit extends Component {
       </Form>
     )
 
-    return(
+    return (
       <div className="edit-page">
         <Container>
-          {generalInfoForm}
-          {portfolioForm}
+          <GeneralForm />
+          <LocationForm />
+          <ContactForm />
+          <AboutForm />
+          <PortfolioForm />
         </Container>
       </div>
     )

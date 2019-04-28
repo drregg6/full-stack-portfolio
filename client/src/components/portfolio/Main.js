@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 // redux
 import { connect } from 'react-redux';
-import { findUser } from '../actions/userActions';
+import { findUser } from '../../actions/userActions';
 
 class Main extends Component {
   componentDidMount() {

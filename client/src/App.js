@@ -14,15 +14,14 @@ DESIGN INSPIRATION:
 TODO:
 - Style Contact Form
 - Complete email submission in Contact form
-- Create User creation / edit pages
 - Create "See more portfolios..." page
 
 */
 
 import React, { Component } from 'react';
 import CustomNav from './components/CustomNav';
-import Main from './components/Main';
-import Edit from './components/Edit';
+import Main from './components/portfolio/Main';
+import Edit from './components/edit/Edit';
 import Error from './components/Error';
 
 // react-router-dom
@@ -33,7 +32,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 // redux
-import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './store';
 

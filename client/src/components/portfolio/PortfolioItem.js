@@ -5,7 +5,7 @@ import {
     CardText,
     CardTitle
 } from 'reactstrap';
-import Image1 from '../img/image1.jpg';
+import Image1 from '../../img/image1.jpg';
 
 class PortfolioItem extends Component {
 

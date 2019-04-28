@@ -3,7 +3,6 @@ import {
   CardGroup,
   Card,
   CardTitle,
-  CardText,
   ListGroup,
   ListGroupItem
 } from 'reactstrap';
@@ -56,33 +55,33 @@ class About extends Component {
               <i className="fab fa-js fa-3x"></i>
               <CardTitle className="header-subtext">Skills</CardTitle>
             </div>
-            <CardText>
+            <div className="card-text">
               <ListGroup flush>
                 {renderSkills}
               </ListGroup>
-            </CardText>
+            </div>
           </Card>
           <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
             <div className="about-card-header center-content flex-column">
               <i className="fas fa-database fa-3x"></i>
               <CardTitle className="header-subtext">Technologies</CardTitle>
             </div>
-            <CardText>
+            <div className="card-text">
               <ListGroup flush>
                 {renderTechnologies}
               </ListGroup>
-            </CardText>
+            </div>
           </Card>
           <Card className="about-card center-content col-12 col-lg-4 inner-padding" body>
             <div className="about-card-header center-content flex-column">
               <i className="fab fa-react fa-3x"></i>
               <CardTitle className="header-subtext">Languages</CardTitle>
             </div>
-            <CardText>
+            <div className="card-text">
               <ListGroup flush>
                 {renderLanguages}
               </ListGroup>
-            </CardText>
+            </div>
           </Card>
         </CardGroup>
       </div>
