@@ -9,22 +9,18 @@ import {
 } from 'reactstrap';
 
 class PortfolioForm extends Component {
-  state = {
-    name: 'App name',
-    technologies: 'App, technologies',
-    url: 'http://www.app.com/url',
-    image: 'Upload an image'
-  }
+  constructor(props) {
+    super(props);
 
-  dropdownChange = ev => {
-    const app = this.props.portfolio !== undefined ? this.props.portfolio.apps.filter(app => ev.target.value === app.name)[0] : 'Workin on it';
-    const techString = app.technologies.join(', ');
-    this.setState({
-      name: app.name,
-      technologies: techString,
-      url: app.url,
-      image: app.image
-    });
+    this.state = {
+      portfolioName: 'App name',
+      portfolioTechnologies: 'App, technologies',
+      portfolioUrl: 'http://www.app.com/url',
+      portfolioImage: 'Upload an image'
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.dropdownChange = this.dropdownChange.bind(this);
   }
 
   handleChange = ev => {
@@ -33,12 +29,24 @@ class PortfolioForm extends Component {
     });
   }
 
+  dropdownChange = ev => {
+    const app = this.props.portfolio !== undefined ? this.props.portfolio.apps.filter(app => ev.target.value === app.name)[0] : 'Workin on it';
+    const techString = app.technologies.join(', ');
+    this.setState({
+      portfolioName: app.name,
+      portfolioTechnologies: techString,
+      portfolioUrl: app.url,
+      portfolioImage: app.image
+    });
+
+  }
+
   render() {
     const portfolio = this.props.portfolio !== 'Loading user...' ? this.props.portfolio : 'Loading user...';
     const apps = portfolio.apps !== undefined ? portfolio.apps : [{name: 'Add an App!', _id: 0}];
 
     return (
-      <div>
+      <div className="inner-margin">
         <Form>
           <FormGroup row>
             <Label sm={2} for="portfolioOptions">List of Apps:</Label>
@@ -64,50 +72,50 @@ class PortfolioForm extends Component {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={2} for='name'>App Name</Label>
+            <Label sm={2} for="portfolioName">App Name</Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="name"
-                id="name"
+                name="portfolioName"
+                id="portfolioName"
+                value={this.state.portfolioName}
                 onChange={this.handleChange}
-                defaultValue={this.state.name}
               />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={2} for='technologies'>App Technologies</Label>
+            <Label sm={2} for="portfolioTechnologies">App Technologies</Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="technologies"
-                id="technologies"
+                name="portfolioTechnologies"
+                id="portfolioTechnologies"
                 onChange={this.handleChange}
-                defaultValue={this.state.technologies}
+                value={this.state.portfolioTechnologies}
               />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={2} for='url'>App Url</Label>
+            <Label sm={2} for="portfolioUrl">App Url</Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="url"
-                id="url"
+                name="portfolioUrl"
+                id="portfolioUrl"
                 onChange={this.handleChange}
-                defaultValue={this.state.url}
+                value={this.state.portfolioUrl}
               />
             </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={2} for='image'>App Image</Label>
+            <Label sm={2} for="portfolioImage">App Image</Label>
             <Col sm={10}>
               <Input
                 type="text"
-                name="image"
-                id="image"
+                name="portfolioImage"
+                id="portfolioImage"
                 onChange={this.handleChange}
-                defaultValue={this.state.image}
+                value={this.state.portfolioImage}
               />
             </Col>
           </FormGroup>

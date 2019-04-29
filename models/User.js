@@ -1,10 +1,14 @@
 /*
 
 this also needs to be refactored
-general should be information used throughout the app
-firstName, lastName, email, github
-github, twitter, facebook, and linkedin should only be names
-not full urls
+- general should be information used throughout the app
+    firstName, lastName, email, github
+- github, twitter, facebook, and linkedin should only be names
+    not full urls
+- information should have a short blurb about the person
+    information.synopsis
+- zipCode should be a string, not a number
+- houseNumber should be a string, not a number
 
 */
 

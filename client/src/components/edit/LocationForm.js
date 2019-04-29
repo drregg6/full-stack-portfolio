@@ -41,15 +41,3 @@ class LocationForm extends Component {
 }
 
 export default LocationForm;
-
-          // <FormGroup row>
-          //   <Label sm={2} for="houseNumber">House Number</Label>
-          //   <Col sm={10}>
-          //     <Input
-          //       type="number"
-          //       id="houseNumber"
-          //       name="houseNumber"
-          //       defaultValue={houseNumber}
-          //     />
-          //   </Col>
-          // </FormGroup>

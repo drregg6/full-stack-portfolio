@@ -45,7 +45,7 @@ class App extends Component {
             <CustomNav />
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route path="/users/edit/:username" component={Edit} />
+              <Route path="/users/:username/edit" component={Edit} />
               <Route path="/users/:username" component={Main} />
               <Route path="/*" component={Error} />
             </Switch>

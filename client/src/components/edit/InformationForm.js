@@ -62,7 +62,7 @@ class InformationForm extends Component {
       ) : ('');
 
     return (
-      <div>
+      <div className="inner-margin">
         <p>Separate with a comma</p>
         <Form>
           {renderSkillsGroup}
