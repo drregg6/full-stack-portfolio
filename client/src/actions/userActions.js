@@ -40,8 +40,9 @@ export const addUser = newUser => dispatch => {
         .catch(err => console.log(`There's been an ${err}`));
 }
 
-export const updateUser = updatedUser => dispatch => {
-    axios.post(`/api/users/edit/`, updatedUser)
+export const updateUser = (updatedUser) => dispatch => {
+    console.log(updatedUser);
+    axios.post(`/api/users/edit`, updatedUser)
         .then(res => dispatch({
             type: UPDATE_USER,
             payload: res.data

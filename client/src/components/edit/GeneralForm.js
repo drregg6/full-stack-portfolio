@@ -8,12 +8,59 @@ import {
   Button
 } from 'reactstrap';
 
+// redux
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/userActions';
+
 class GeneralForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      updatedBody: {
+        key: 'general',
+        firstName: '',
+        lastName: ''
+      }
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    const username = this.props.username;
+    const { firstName, lastName } = newProps.general;
+    this.setState({
+      username,
+      updatedBody: {
+        firstName,
+        lastName
+      }
+    })
+  }
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+
+    console.log(this.state);
+    this.props.updateUser(this.state);
+  }
+
+  handleChange = ev => {
+    this.setState({
+      updatedBody: {
+        [ev.target.name]: ev.target.value
+      }
+    })
+    console.log(this.state);
+  }
+
   render() {
-    const { firstName, lastName } = this.props.general !== undefined ? this.props.general : 'Loading user...';
     return (
       <React.Fragment>
-        <Form className="inner-margin">
+        <Form className="inner-margin" onSubmit={this.handleSubmit}>
           <FormGroup row>
             <Label sm={2} for="firstName">First Name</Label>
             <Col sm={10}>
@@ -21,7 +68,8 @@ class GeneralForm extends Component {
                 type="text"
                 name="firstName"
                 id="firstName"
-                defaultValue={firstName}
+                onChange={this.handleChange}
+                value={this.state.updatedBody.firstName}
               />
             </Col>
           </FormGroup>
@@ -32,7 +80,8 @@ class GeneralForm extends Component {
                 type="text"
                 name="lastName"
                 id="lastName"
-                defaultValue={lastName}
+                onChange={this.handleChange}
+                value={this.state.updatedBody.lastName}
               />
             </Col>
           </FormGroup>
@@ -43,4 +92,7 @@ class GeneralForm extends Component {
   }
 }
 
-export default GeneralForm;
+export default connect(
+  null,
+  { updateUser }
+)(GeneralForm);

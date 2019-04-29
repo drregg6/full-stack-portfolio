@@ -50,20 +50,30 @@ router.post('/', (req, res) => {
 // @route  POST api/users/edit/:username
 // @desc   Update a User
 // @access PUBLIC
-router.post('/edit/', (req, res) => {
+router.post('/edit', (req, res) => {
+    // will recieve a req.body, an obj with a single portion of the user in it
+    let username = req.body.username;
+    const { updatedBody } = req.body.updatedBody;
+    const { key } = req.body.updatedBody;
 
-    User.findOne({username: req.params.username})
+    User.findOneAndUpdate({username: username}, {key: updatedBody})
         .then(user => {
-            let updatedUser = req.body;
-
-            user.update({username: req.params.username}, updatedUser)
-                .then(user => {
-                    res.json(user);
-                })
-                .catch(err => {
-                    console.log('something went wrong')
-                })
+            res.json(user);
         });
+
+    // User.findOne({username: req.params.username})
+    //     .then(user => {
+    //         let updatedUser = req.body;
+    //         let key = updatedUser.key;
+
+    //         user.update({username: req.params.username}, {key: updatedUser})
+    //             .then(user => {
+    //                 res.json(user);
+    //             })
+    //             .catch(err => {
+    //                 console.log('something went wrong')
+    //         })
+    // });
 });
 
 // @route  DELETE api/users/:username

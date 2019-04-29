@@ -26,7 +26,7 @@ class Edit extends Component {
   }
 
   render() {
-    // const user = this.props.user !== undefined ? this.props.user : 'Workin on it';
+    const username= this.props.match.params.username;
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Loading user...';
     const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Loading user...';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Loading user...';
@@ -35,12 +35,11 @@ class Edit extends Component {
 
 
     const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Loading user...';
-    // const apps = portfolio.apps !== undefined && portfolio.apps.length !== 0 ? portfolio.apps : [{name: 'Add an App!', _id: 0}];
 
     return (
       <div className="edit-page">
         <Container>
-          <GeneralForm general={general} />
+          <GeneralForm general={general} username={username} />
           <LocationForm location={location} />
           <ContactForm contact={contact} />
           <InformationForm information={information} />

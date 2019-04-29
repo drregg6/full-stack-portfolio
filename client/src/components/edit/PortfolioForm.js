@@ -1,3 +1,11 @@
+/*
+
+add an upload image
+figure out where to place image
+figure out how to render image
+
+*/
+
 import React, { Component } from 'react';
 import {
   Form,
