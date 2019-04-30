@@ -21,6 +21,7 @@ class PortfolioForm extends Component {
     super(props);
 
     this.state = {
+      username: '',
       portfolioName: 'App name',
       portfolioTechnologies: 'App, technologies',
       portfolioUrl: 'http://www.app.com/url',

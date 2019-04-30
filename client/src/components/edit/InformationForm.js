@@ -9,17 +9,70 @@ import {
 } from 'reactstrap';
 
 class InformationForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      information: {
+        general: 'information',
+        skills: 'Workin on it',
+        technologies: 'Workin on it',
+        languages: 'Workin on it'
+      }
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+
+    const skills = newProps.information.skills.join(', ');
+    const languages = newProps.information.languages.join(', ');
+    const technologies = newProps.information.technologies.join(', ');
+
+    this.setState({
+      information: {
+        skills,
+        technologies,
+        languages
+      }
+    });
+
+    console.log(this.state);
+
+  }
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+    // on submit each arr is reassembled
+    let skillsPayload = this.state.information.skills.split(', ');
+    let languagesPayload = this.state.information.languages.split(', ');
+    let technologiesPayload = this.state.information.technologies.split(', ');
+    const payload = {
+      ...this.state,
+      information: {
+        skills: [...skillsPayload],
+        languages: [...languagesPayload],
+        technologies: [...technologiesPayload]
+      }
+    }
+
+    console.log(payload);
+  }
+
+  handleChange = ev => {
+    this.setState({
+      information: {
+        [ev.target.name]: ev.target.value
+      }
+    })
+  }
+
   render() {
-    const skills = this.props.information.skills !== undefined ? this.props.information.skills : 'Workin on it';
-    const skillsString = skills !== 'Workin on it' && skills.length !== 0 ? skills.join(', ') : '';
 
-    const technologies = this.props.information.technologies !== undefined ? this.props.information.technologies : 'Workin on it';
-    const technologiesString = technologies !== 'Workin on it' && technologies.length !== 0 ? technologies.join(', ') : '';
-
-    const languages = this.props.information.languages !== undefined ? this.props.information.languages : 'Workin on it';
-    const languagesString = languages !== 'Workin on it' && languages.length !== 0 ? languages.join(', ') : '';
-
-    const renderSkillsGroup = skills !== 'Workin on it' && skills.length !== 0 ? (
+    const renderSkillsGroup = (
       <FormGroup row>
         <Label sm={2} for="skills">Skills</Label>
         <Col sm={10}>
@@ -27,13 +80,14 @@ class InformationForm extends Component {
             type="text"
             name="skills"
             id="skills"
-            defaultValue={skillsString}
+            onChange={this.handleChange}
+            value={this.state.information.skills}
           />
         </Col>
       </FormGroup>
-      ) : ('');
+      )
 
-    const renderLanguagesGroup = languages !== 'Workin on it' && languages.length !== 0 ? (
+    const renderLanguagesGroup = (
       <FormGroup row>
         <Label sm={2} for="languages">Languages</Label>
         <Col sm={10}>
@@ -41,13 +95,14 @@ class InformationForm extends Component {
             type="text"
             name="languages"
             id="languages"
-            defaultValue={languagesString}
+            onChange={this.handleChange}
+            value={this.state.information.languages}
           />
         </Col>
       </FormGroup>
-      ) : ('');
+      )
 
-    const renderTechnologiesGroup = technologies !== 'Workin on it' && technologies.length !== 0 ? (
+    const renderTechnologiesGroup = (
       <FormGroup row>
         <Label sm={2} for="technologies">Technologies</Label>
         <Col sm={10}>
@@ -55,16 +110,17 @@ class InformationForm extends Component {
             type="text"
             name="technologies"
             id="technologies"
-            defaultValue={technologiesString}
+            onChange={this.handleChange}
+            value={this.state.information.technologies}
           />
         </Col>
       </FormGroup>
-      ) : ('');
+      )
 
     return (
       <div className="inner-margin">
         <p>Separate with a comma</p>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           {renderSkillsGroup}
           {renderLanguagesGroup}
           {renderTechnologiesGroup}

@@ -1,3 +1,10 @@
+/*
+
+form and state update
+proxy error onSubmit - cannot locate edit route
+
+*/
+
 import React, { Component } from 'react';
 import {
   Form,
@@ -18,7 +25,7 @@ class GeneralForm extends Component {
 
     this.state = {
       username: '',
-      updatedBody: {
+      general: {
         key: 'general',
         firstName: '',
         lastName: ''
@@ -34,7 +41,7 @@ class GeneralForm extends Component {
     const { firstName, lastName } = newProps.general;
     this.setState({
       username,
-      updatedBody: {
+      general: {
         firstName,
         lastName
       }
@@ -50,7 +57,7 @@ class GeneralForm extends Component {
 
   handleChange = ev => {
     this.setState({
-      updatedBody: {
+      general: {
         [ev.target.name]: ev.target.value
       }
     })
@@ -69,7 +76,7 @@ class GeneralForm extends Component {
                 name="firstName"
                 id="firstName"
                 onChange={this.handleChange}
-                value={this.state.updatedBody.firstName}
+                value={this.state.general.firstName}
               />
             </Col>
           </FormGroup>
@@ -81,7 +88,7 @@ class GeneralForm extends Component {
                 name="lastName"
                 id="lastName"
                 onChange={this.handleChange}
-                value={this.state.updatedBody.lastName}
+                value={this.state.general.lastName}
               />
             </Col>
           </FormGroup>

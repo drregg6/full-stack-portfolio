@@ -25,6 +25,9 @@ class Edit extends Component {
     this.props.findUser(this.props.match.params.username);
   }
 
+  // componentWillReceiveProps(nextProps) {
+  // }
+
   render() {
     const username= this.props.match.params.username;
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Loading user...';
