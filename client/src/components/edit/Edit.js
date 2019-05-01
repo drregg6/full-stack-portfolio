@@ -43,10 +43,10 @@ class Edit extends Component {
       <div className="edit-page">
         <Container>
           <GeneralForm general={general} username={username} />
-          <LocationForm location={location} />
-          <ContactForm contact={contact} />
-          <InformationForm information={information} />
-          <PortfolioForm portfolio={portfolio} />
+          <LocationForm location={location} username={username} />
+          <ContactForm contact={contact} username={username} />
+          <InformationForm information={information} username={username} />
+          <PortfolioForm portfolio={portfolio} username={username} />
         </Container>
       </div>
     )

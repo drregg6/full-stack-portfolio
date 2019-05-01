@@ -9,6 +9,60 @@ import {
 } from 'reactstrap';
 
 class LocationForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      location: {
+        key: 'location',
+        houseNumber: 0,
+        street: '',
+        apartment: '',
+        city: '',
+        state: '',
+        country: '',
+        zipCode: ''
+      }
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const username = nextProps.username;
+    const { houseNumber, street, apartment, city, state, country, zipCode } = nextProps.location;
+
+    this.setState({
+      username,
+      location: {
+        ...this.state.location,
+        houseNumber,
+        street,
+        apartment,
+        city,
+        state,
+        country,
+        zipCode
+      }
+    })
+  }
+
+  handleChange = ev => {
+    this.setState({
+      location: {
+        ...this.state.location,
+        [ev.target.name]: ev.target.value
+      }
+    })
+  }
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+    console.log(this.state);
+  }
+
 
   render() {
     const renderFormGroup = this.props.location !== 'Loading user...' ? (
@@ -23,6 +77,7 @@ class LocationForm extends Component {
                 name={key}
                 id={key}
                 defaultValue={this.props.location[key]}
+                onChange={this.handleChange}
               />
             </Col>
           </FormGroup>
@@ -31,7 +86,7 @@ class LocationForm extends Component {
     ) : ('Loading user...');
     return (
       <React.Fragment>
-        <Form className="inner-margin">
+        <Form className="inner-margin" onSubmit={this.handleSubmit}>
           {renderFormGroup}
           <Button>Submit</Button>
         </Form>

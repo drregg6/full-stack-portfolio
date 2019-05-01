@@ -33,6 +33,7 @@ class InformationForm extends Component {
     const technologies = newProps.information.technologies.join(', ');
 
     this.setState({
+      username: newProps.username,
       information: {
         skills,
         technologies,
@@ -46,10 +47,12 @@ class InformationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
+
     // on submit each arr is reassembled
-    let skillsPayload = this.state.information.skills.split(', ');
-    let languagesPayload = this.state.information.languages.split(', ');
-    let technologiesPayload = this.state.information.technologies.split(', ');
+    const skillsPayload = this.state.information.skills.split(', ');
+    const languagesPayload = this.state.information.languages.split(', ');
+    const technologiesPayload = this.state.information.technologies.split(', ');
+
     const payload = {
       ...this.state,
       information: {
@@ -65,6 +68,7 @@ class InformationForm extends Component {
   handleChange = ev => {
     this.setState({
       information: {
+        ...this.state.information,
         [ev.target.name]: ev.target.value
       }
     })

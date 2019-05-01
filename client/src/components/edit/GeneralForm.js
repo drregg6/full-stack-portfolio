@@ -58,6 +58,7 @@ class GeneralForm extends Component {
   handleChange = ev => {
     this.setState({
       general: {
+        ...this.state.general,
         [ev.target.name]: ev.target.value
       }
     })
