@@ -47,33 +47,26 @@ router.post('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
-// @route  POST api/users/edit/:username
+// @route  POST api/users/:username/edit/
 // @desc   Update a User
 // @access PUBLIC
 router.post('/edit', (req, res) => {
-    // will recieve a req.body, an obj with a single portion of the user in it
-    let username = req.body.username;
-    const { updatedBody } = req.body.updatedBody;
-    const { key } = req.body.updatedBody;
+    // receives the entire user obj with updated information
+    const query = {username: req.body.username};
 
-    User.findOneAndUpdate({username: username}, {key: updatedBody})
-        .then(user => {
-            res.json(user);
-        });
+    console.log(query);
+    console.log(req.body);
 
-    // User.findOne({username: req.params.username})
-    //     .then(user => {
-    //         let updatedUser = req.body;
-    //         let key = updatedUser.key;
+    User.findOneAndUpdate(query, req.body)
+    .then(user => {
+        res.json(user);
+    })
+    .catch(err => {
+        console.log(`there's been an err: ${err}`);
+        return res.status(500).json({success: false});
+    });
 
-    //         user.update({username: req.params.username}, {key: updatedUser})
-    //             .then(user => {
-    //                 res.json(user);
-    //             })
-    //             .catch(err => {
-    //                 console.log('something went wrong')
-    //         })
-    // });
+    // cannot use dynamic keys with mongoose
 });
 
 // @route  DELETE api/users/:username

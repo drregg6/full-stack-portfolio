@@ -31,7 +31,6 @@ export const findUser = username => dispatch => {
 }
 
 export const addUser = newUser => dispatch => {
-
     axios.post(`/api/users`, newUser)
         .then(res => dispatch({
             type: ADD_USER,
@@ -41,7 +40,6 @@ export const addUser = newUser => dispatch => {
 }
 
 export const updateUser = (updatedUser) => dispatch => {
-    console.log(updatedUser);
     axios.post(`/api/users/edit`, updatedUser)
         .then(res => dispatch({
             type: UPDATE_USER,

@@ -1,9 +1,7 @@
 /*
 
-create a new Component ~FormGroup~
-make a call to findUser and get the user object
-each Form will have an object passed down
-each form will have a FormGroup component
+when updated, send a flash message
+username is pointless - erase once PortfolioForm is complete
 
 */
 
@@ -25,28 +23,24 @@ class Edit extends Component {
     this.props.findUser(this.props.match.params.username);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  // }
-
   render() {
+    const user = this.props.user !== undefined ? this.props.user : 'Loading user...';
     const username= this.props.match.params.username;
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Loading user...';
     const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Loading user...';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Loading user...';
 
     const information = this.props.user.information !== undefined ? this.props.user.information : 'Workin on it';
-
-
     const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Loading user...';
 
     return (
       <div className="edit-page">
         <Container>
-          <GeneralForm general={general} username={username} />
-          <LocationForm location={location} username={username} />
-          <ContactForm contact={contact} username={username} />
-          <InformationForm information={information} username={username} />
-          <PortfolioForm portfolio={portfolio} username={username} />
+          <GeneralForm general={general} user={user} />
+          <LocationForm location={location} user={user} />
+          <ContactForm contact={contact} user={user} />
+          <InformationForm information={information} user={user} />
+          <PortfolioForm portfolio={portfolio} username={username} user={user} />
         </Container>
       </div>
     )

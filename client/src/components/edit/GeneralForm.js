@@ -1,7 +1,7 @@
 /*
 
-form and state update
-proxy error onSubmit - cannot locate edit route
+insert the updated section of the form into the entire user obj
+send the entire user obj to update route
 
 */
 
@@ -10,7 +10,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Col,
   Input,
   Button
 } from 'reactstrap';
@@ -24,41 +23,45 @@ class GeneralForm extends Component {
     super(props);
 
     this.state = {
-      username: '',
-      general: {
+      updatedBody: {
         key: 'general',
         firstName: '',
         lastName: ''
       }
     }
 
+    this.user = {};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    const username = this.props.username;
+    this.user = newProps.user;
     const { firstName, lastName } = newProps.general;
     this.setState({
-      username,
-      general: {
+      updatedBody: {
+        ...this.state.updatedBody,
         firstName,
         lastName
       }
     })
+    console.log(this.user)
   }
 
   handleSubmit = ev => {
     ev.preventDefault();
-
-    console.log(this.state);
-    this.props.updateUser(this.state);
+    const updatedUser = {
+      ...this.user,
+      general: this.state.updatedBody
+    }
+    console.log(updatedUser);
+    this.props.updateUser(updatedUser);
   }
 
   handleChange = ev => {
     this.setState({
-      general: {
-        ...this.state.general,
+      updatedBody: {
+        ...this.state.updatedBody,
         [ev.target.name]: ev.target.value
       }
     })
@@ -67,35 +70,32 @@ class GeneralForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Form className="inner-margin" onSubmit={this.handleSubmit}>
+      <div className="inner-margin">
+        <h1 className="inner-margin">General Information</h1>
+        <Form onSubmit={this.handleSubmit}>
           <FormGroup row>
-            <Label sm={2} for="firstName">First Name</Label>
-            <Col sm={10}>
+            <Label for="firstName">First Name</Label>
               <Input
                 type="text"
                 name="firstName"
                 id="firstName"
                 onChange={this.handleChange}
-                value={this.state.general.firstName}
+                value={this.state.updatedBody.firstName}
               />
-            </Col>
           </FormGroup>
           <FormGroup row>
-            <Label sm={2} for="lastName">Last Name</Label>
-            <Col sm={10}>
+            <Label for="lastName">Last Name</Label>
               <Input
                 type="text"
                 name="lastName"
                 id="lastName"
                 onChange={this.handleChange}
-                value={this.state.general.lastName}
+                value={this.state.updatedBody.lastName}
               />
-            </Col>
           </FormGroup>
           <Button>Submit</Button>
         </Form>
-      </React.Fragment>
+      </div>
     )
   }
 }

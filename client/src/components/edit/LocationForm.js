@@ -3,18 +3,20 @@ import {
   Form,
   FormGroup,
   Label,
-  Col,
   Input,
   Button
 } from 'reactstrap';
+
+// redux
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/userActions';
 
 class LocationForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
-      location: {
+      updatedBody: {
         key: 'location',
         houseNumber: 0,
         street: '',
@@ -26,18 +28,18 @@ class LocationForm extends Component {
       }
     }
 
+    this.user = {};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const username = nextProps.username;
-    const { houseNumber, street, apartment, city, state, country, zipCode } = nextProps.location;
+  componentWillReceiveProps(newProps) {
+    this.user = newProps.user;
+    const { houseNumber, street, apartment, city, state, country, zipCode } = newProps.location;
 
     this.setState({
-      username,
-      location: {
-        ...this.state.location,
+      updatedBody: {
+        ...this.state.updatedBody,
         houseNumber,
         street,
         apartment,
@@ -51,8 +53,8 @@ class LocationForm extends Component {
 
   handleChange = ev => {
     this.setState({
-      location: {
-        ...this.state.location,
+      updatedBody: {
+        ...this.state.updatedBody,
         [ev.target.name]: ev.target.value
       }
     })
@@ -60,39 +62,45 @@ class LocationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    console.log(this.state);
+    const updatedUser = {
+      ...this.user,
+      location: this.state.updatedBody
+    }
+
+    this.props.updateUser(updatedUser);
   }
 
 
   render() {
     const renderFormGroup = this.props.location !== 'Loading user...' ? (
       Object.keys(this.props.location).map((key, i) => {
-        if (key === 'key') return;
+        if (key === 'key') return null;
         return (
           <FormGroup row>
-            <Label sm={2} for={key}>{key}</Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                name={key}
-                id={key}
-                defaultValue={this.props.location[key]}
-                onChange={this.handleChange}
-              />
-            </Col>
+            <Label for={key}>{key}</Label>
+            <Input
+              type="text"
+              name={key}
+              id={key}
+              defaultValue={this.props.location[key]}
+              onChange={this.handleChange}
+            />
           </FormGroup>
         )
       })
     ) : ('Loading user...');
     return (
-      <React.Fragment>
-        <Form className="inner-margin" onSubmit={this.handleSubmit}>
+      <div className="inner-margin">
+        <h1 className="inner-margin">Location</h1>
+        <Form onSubmit={this.handleSubmit}>
           {renderFormGroup}
           <Button>Submit</Button>
         </Form>
-      </React.Fragment>
+      </div>
     )
   }
 }
 
-export default LocationForm;
+export default connect(
+  null, { updateUser }
+)(LocationForm);

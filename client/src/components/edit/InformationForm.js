@@ -3,18 +3,20 @@ import {
   Form,
   FormGroup,
   Label,
-  Col,
   Input,
   Button
 } from 'reactstrap';
+
+// redux
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/userActions';
 
 class InformationForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
-      information: {
+      updatedBody: {
         general: 'information',
         skills: 'Workin on it',
         technologies: 'Workin on it',
@@ -22,19 +24,19 @@ class InformationForm extends Component {
       }
     }
 
+    this.user = {};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-
+    this.user = newProps.user;
     const skills = newProps.information.skills.join(', ');
     const languages = newProps.information.languages.join(', ');
     const technologies = newProps.information.technologies.join(', ');
 
     this.setState({
-      username: newProps.username,
-      information: {
+      updatedBody: {
         skills,
         technologies,
         languages
@@ -49,26 +51,28 @@ class InformationForm extends Component {
     ev.preventDefault();
 
     // on submit each arr is reassembled
-    const skillsPayload = this.state.information.skills.split(', ');
-    const languagesPayload = this.state.information.languages.split(', ');
-    const technologiesPayload = this.state.information.technologies.split(', ');
+    const skillsPayload = this.state.updatedBody.skills.split(', ');
+    const languagesPayload = this.state.updatedBody.languages.split(', ');
+    const technologiesPayload = this.state.updatedBody.technologies.split(', ');
 
-    const payload = {
-      ...this.state,
-      information: {
-        skills: [...skillsPayload],
-        languages: [...languagesPayload],
-        technologies: [...technologiesPayload]
-      }
+    const information = {
+      skills: [...skillsPayload],
+      languages: [...languagesPayload],
+      technologies: [...technologiesPayload]
     }
 
-    console.log(payload);
+    const updatedUser = {
+      ...this.user,
+      information
+    }
+
+    this.props.updateUser(updatedUser);
   }
 
   handleChange = ev => {
     this.setState({
-      information: {
-        ...this.state.information,
+      updatedBody: {
+        ...this.state.updatedBody,
         [ev.target.name]: ev.target.value
       }
     })
@@ -78,52 +82,49 @@ class InformationForm extends Component {
 
     const renderSkillsGroup = (
       <FormGroup row>
-        <Label sm={2} for="skills">Skills</Label>
-        <Col sm={10}>
-          <Input
-            type="text"
-            name="skills"
-            id="skills"
-            onChange={this.handleChange}
-            value={this.state.information.skills}
-          />
-        </Col>
+        <Label for="skills">Skills</Label>
+        <Input
+          type="text"
+          name="skills"
+          id="skills"
+          onChange={this.handleChange}
+          value={this.state.updatedBody.skills}
+        />
       </FormGroup>
       )
 
     const renderLanguagesGroup = (
       <FormGroup row>
-        <Label sm={2} for="languages">Languages</Label>
-        <Col sm={10}>
-          <Input
-            type="text"
-            name="languages"
-            id="languages"
-            onChange={this.handleChange}
-            value={this.state.information.languages}
-          />
-        </Col>
+        <Label for="languages">Languages</Label>
+        <Input
+          type="text"
+          name="languages"
+          id="languages"
+          onChange={this.handleChange}
+          value={this.state.updatedBody.languages}
+        />
       </FormGroup>
       )
 
     const renderTechnologiesGroup = (
       <FormGroup row>
-        <Label sm={2} for="technologies">Technologies</Label>
-        <Col sm={10}>
-          <Input
-            type="text"
-            name="technologies"
-            id="technologies"
-            onChange={this.handleChange}
-            value={this.state.information.technologies}
-          />
-        </Col>
+        <Label for="technologies">Technologies</Label>
+        <Input
+          type="text"
+          name="technologies"
+          id="technologies"
+          onChange={this.handleChange}
+          value={this.state.updatedBody.technologies}
+        />
       </FormGroup>
       )
 
     return (
       <div className="inner-margin">
-        <p>Separate with a comma</p>
+        <div className="inner-margin">
+          <h1>About</h1>
+          <p>Separate with a comma</p>
+        </div>
         <Form onSubmit={this.handleSubmit}>
           {renderSkillsGroup}
           {renderLanguagesGroup}
@@ -135,4 +136,7 @@ class InformationForm extends Component {
   }
 }
 
-export default InformationForm;
+export default connect(
+  null,
+  { updateUser }
+)(InformationForm);

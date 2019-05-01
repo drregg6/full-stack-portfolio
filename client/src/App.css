@@ -322,7 +322,10 @@ nav {
 }
 
 
-/* Edit page */s
+/* Edit page */
+.edit-page {
+    margin: 6rem 12rem;
+}
 .edit-page button {
     margin-top: 2rem;
 }
@@ -384,8 +387,8 @@ nav {
     .contact-icons div:last-child {
         margin-bottom: 0;
     }
-
     .edit-page {
-        margin: 4rem auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

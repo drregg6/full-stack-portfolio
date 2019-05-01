@@ -3,17 +3,20 @@ import {
   Form,
   FormGroup,
   Label,
-  Col,
   Input,
   Button
 } from 'reactstrap';
 
+// redux
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/userActions';
+
 class ContactForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      username: '',
-      contact: {
+      updatedBody: {
         key: 'contact',
         email: '',
         github: '',
@@ -24,17 +27,17 @@ class ContactForm extends Component {
       }
     }
 
+    this.user = {};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    const username = this.props.username;
+    this.user = newProps.user;
     const { email, github, twitter, facebook, linkedin, telephone } = newProps.contact;
     this.setState({
-      username,
-      contact: {
-        ...this.state.contact,
+      updatedBody: {
+        ...this.state.updatedBody,
         email,
         github,
         twitter,
@@ -47,13 +50,19 @@ class ContactForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    console.log(ev);
+
+    const updatedUser = {
+      ...this.user,
+      contact: this.state.updatedBody
+    }
+
+    this.props.updateUser(updatedUser);
   }
 
   handleChange = ev => {
     this.setState({
-      contact: {
-        ...this.state.contact,
+      updatedBody: {
+        ...this.state.updatedBody,
         [ev.target.name]: ev.target.value
       }
     });
@@ -62,25 +71,24 @@ class ContactForm extends Component {
   render() {
     const renderFormGroup = this.props.contact !== 'Loading user...' ? (
       Object.keys(this.props.contact).map((key, i) => {
-        if (key === 'key') return;
+        if (key === 'key') return null;
         return (
-          <FormGroup row>
-            <Label sm={2} for={key}>{key}</Label>
-            <Col sm={10}>
-              <Input
-                type="text"
-                name={key}
-                id={key}
-                defaultValue={this.props.contact[key]}
-                onChange={this.handleChange}
-              />
-            </Col>
+          <FormGroup row key={key}>
+            <Label for={key}>{key}</Label>
+            <Input
+              type="text"
+              name={key}
+              id={key}
+              defaultValue={this.props.contact[key]}
+              onChange={this.handleChange}
+            />
           </FormGroup>
         )
       })
     ) : ('Loading user...');
     return (
       <div className="inner-margin">
+        <h1 className="inner-margin">Contact</h1>
         <Form onSubmit={this.handleSubmit}>
           {renderFormGroup}
           <Button>Submit</Button>
@@ -90,4 +98,7 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+export default connect(
+  null,
+  { updateUser }
+)(ContactForm);

@@ -36,13 +36,10 @@ const userReducer = (state = initState, action) => {
             }
         case UPDATE_USER:
             // filter through users and find :username, update :username, return new users list
-            // let updatedUsers = state.filter(user => user.username !== action.payload.username);
-            // return {
-            //     ...state,
-            //     users: [...newUsers, action.payload]
-            // }
+            let updatedUsers = state.users.filter(user => user.username !== action.payload.username);
             return {
-                ...state
+                ...state,
+                users: [...updatedUsers, action.payload]
             }
         case GET_SUBDOCUMENT:
             let key = action.payload.key;
