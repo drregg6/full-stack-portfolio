@@ -1,3 +1,12 @@
+/*
+
+will only be username (unqiue)
+first name
+password
+repeat password
+
+*/
+
 import React, { Component } from 'react';
 import {
   Button,

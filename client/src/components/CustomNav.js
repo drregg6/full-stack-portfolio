@@ -6,6 +6,8 @@ IF (logged_in) {
     <Button>New User Modal</Button>
 }
 
+logo should be name specific
+
 */
 
 import React, { Component } from 'react';

@@ -1,10 +1,3 @@
-/*
-
-insert the updated section of the form into the entire user obj
-send the entire user obj to update route
-
-*/
-
 import React, { Component } from 'react';
 import {
   Form,
@@ -45,7 +38,6 @@ class GeneralForm extends Component {
         lastName
       }
     })
-    console.log(this.user)
   }
 
   handleSubmit = ev => {
@@ -54,7 +46,6 @@ class GeneralForm extends Component {
       ...this.user,
       general: this.state.updatedBody
     }
-    console.log(updatedUser);
     this.props.updateUser(updatedUser);
   }
 
@@ -65,7 +56,6 @@ class GeneralForm extends Component {
         [ev.target.name]: ev.target.value
       }
     })
-    console.log(this.state);
   }
 
   render() {

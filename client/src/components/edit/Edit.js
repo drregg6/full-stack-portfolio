@@ -30,7 +30,7 @@ class Edit extends Component {
     const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Loading user...';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Loading user...';
 
-    const information = this.props.user.information !== undefined ? this.props.user.information : 'Workin on it';
+    const information = this.props.user.information !== undefined ? this.props.user.information : 'Loading user...';
     const portfolio = this.props.user.portfolio !== undefined ? this.props.user.portfolio : 'Loading user...';
 
     return (

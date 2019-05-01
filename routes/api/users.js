@@ -54,9 +54,6 @@ router.post('/edit', (req, res) => {
     // receives the entire user obj with updated information
     const query = {username: req.body.username};
 
-    console.log(query);
-    console.log(req.body);
-
     User.findOneAndUpdate(query, req.body)
     .then(user => {
         res.json(user);
@@ -65,8 +62,6 @@ router.post('/edit', (req, res) => {
         console.log(`there's been an err: ${err}`);
         return res.status(500).json({success: false});
     });
-
-    // cannot use dynamic keys with mongoose
 });
 
 // @route  DELETE api/users/:username
