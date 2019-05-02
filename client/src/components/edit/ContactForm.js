@@ -73,7 +73,7 @@ class ContactForm extends Component {
       Object.keys(this.props.contact).map((key, i) => {
         if (key === 'key') return null;
         return (
-          <FormGroup row key={key}>
+          <FormGroup key={key}>
             <Label for={key}>{key}</Label>
             <Input
               type="text"

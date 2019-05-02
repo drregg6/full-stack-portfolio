@@ -1,6 +1,5 @@
 /*
 
-update portfolio!!! everything still needs to be done!!!
 add an upload image
 figure out where to place image
 figure out how to render image
@@ -21,104 +20,117 @@ class PortfolioForm extends Component {
     super(props);
 
     this.state = {
-      username: '',
-      portfolioName: 'App name',
-      portfolioTechnologies: 'App, technologies',
-      portfolioUrl: 'http://www.app.com/url',
-      portfolioImage: 'Upload an image'
+      updatedBody: {
+        key: "portfolio",
+        apps: []
+      },
+      currentApp: {
+        name: '',
+        url: '',
+        image: '',
+        technologies: ''
+      }
     }
 
+    this.user = {};
     this.handleChange = this.handleChange.bind(this);
-    this.dropdownChange = this.dropdownChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+    componentWillReceiveProps(newProps) {
+    this.user = newProps.user;
+    const { apps } = newProps.portfolio;
+    const techString = apps.map(app => {
+      return {
+        ...app,
+        technologies: app.technologies.join(', ')
+      }
+    })
+
+    this.setState({
+      updatedBody: {
+        ...this.state.updatedBody,
+        apps: [...techString]
+      }
+    });
+
+    console.log(this.state);
   }
 
   handleChange = ev => {
     this.setState({
-      [ev.target.name]: ev.target.value
+      currentApp: {
+        [ev.target.name]: ev.target.value
+      }
     });
   }
 
-  dropdownChange = ev => {
-    const app = this.props.portfolio !== undefined ? this.props.portfolio.apps.filter(app => ev.target.value === app.name)[0] : 'Workin on it';
-    const techString = app.technologies.join(', ');
+  handleClick = id => {
+    const app = this.state.updatedBody.apps.filter(app => {
+      return app._id === id;
+    })
+    console.log(app);
     this.setState({
-      portfolioName: app.name,
-      portfolioTechnologies: techString,
-      portfolioUrl: app.url,
-      portfolioImage: app.image
-    });
+      ...this.state,
+      currentApp: {
+        name: app[0].name,
+        url: app[0].url,
+        technologies: app[0].technologies,
+        image: app[0].image
+      }
+    })
+  }
 
+  handleDelete = ev => {
+    console.log('handling delete');
+  }
+
+  handleSubmit = ev => {
+    ev.preventDefault();
+
+    console.log(this.user);
   }
 
   render() {
-    const portfolio = this.props.portfolio !== 'Loading user...' ? this.props.portfolio : 'Loading user...';
-    const apps = portfolio.apps !== undefined ? portfolio.apps : [{name: 'Add an App!', _id: 0}];
+    const renderOptions = this.state.updatedBody.apps[0] !== undefined ? (
+      this.state.updatedBody.apps.map((app, i) => {
+        return (
+          <div key={app._id} style={{border: '1px solid black', padding: '.5rem', width: '50%'}}>
+            <span onClick={() => { this.handleClick(app._id)} }>{app.name}</span> <span onClick={this.handleDelete} style={{background: '#f00', color: '#fff', padding: '3px 6px', borderRadius: '50%', border: 'none', cursor: 'pointer', float: 'right'}}>x</span>
+          </div>
+        )
+      })
+    ) : ('');
+
+    const renderForm = this.state.updatedBody.apps[0] !== undefined ? (
+      Object.keys(this.state.currentApp).map((key, i) => {
+        if (key === 'key') return null; // for key: 'portfolio'
+        if (key === '_id') return null;
+        return (
+          <FormGroup key={i}>
+            <Label for={key}>{key}</Label>
+            <Input
+              type="text"
+              name={key}
+              id={key}
+              onChange={this.handleChange}
+              value={this.state.currentApp[key]}
+            />
+          </FormGroup>
+        )
+      })
+    ) : ('Loading user...');
 
     return (
       <div className="inner-margin">
         <h1 className="inner-margin">Portfolio</h1>
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {renderOptions}
+        </div>
         <Form>
-          <FormGroup row>
-            <Label for="portfolioOptions">List of Apps:</Label>
-            <Input
-              type="select"
-              id="portfolioOptions"
-              name="portfolioOptions"
-              onChange={this.dropdownChange}
-            >
-              {apps.map(app => {
-                return (
-                  <option
-                    key={app._id}
-                    value={app.name}
-                    label={app.name}
-                  >
-                  {app.name}
-                  </option>
-                )
-              })}
-            </Input>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="portfolioName">App Name</Label>
-            <Input
-              type="text"
-              name="portfolioName"
-              id="portfolioName"
-              value={this.state.portfolioName}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup row>
-            <Label for="portfolioTechnologies">App Technologies</Label>
-            <Input
-              type="text"
-              name="portfolioTechnologies"
-              id="portfolioTechnologies"
-              onChange={this.handleChange}
-              value={this.state.portfolioTechnologies}
-            />
-          </FormGroup>
-          <FormGroup row>
-            <Label for="portfolioUrl">App Url</Label>
-            <Input
-              type="text"
-              name="portfolioUrl"
-              id="portfolioUrl"
-              onChange={this.handleChange}
-              value={this.state.portfolioUrl}
-            />
-          </FormGroup>
-          <FormGroup row>
-            <Label for="portfolioImage">App Image</Label>
-            <Input
-              type="text"
-              name="portfolioImage"
-              id="portfolioImage"
-              onChange={this.handleChange}
-              value={this.state.portfolioImage}
-            />
-          </FormGroup>
+          {renderForm}
           <Button>Submit</Button>
         </Form>
       </div>

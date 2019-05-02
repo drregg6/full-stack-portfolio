@@ -76,7 +76,7 @@ class LocationForm extends Component {
       Object.keys(this.props.location).map((key, i) => {
         if (key === 'key') return null;
         return (
-          <FormGroup row>
+          <FormGroup>
             <Label for={key}>{key}</Label>
             <Input
               type="text"

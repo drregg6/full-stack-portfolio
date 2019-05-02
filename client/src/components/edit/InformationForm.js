@@ -81,7 +81,7 @@ class InformationForm extends Component {
   render() {
 
     const renderSkillsGroup = (
-      <FormGroup row>
+      <FormGroup>
         <Label for="skills">Skills</Label>
         <Input
           type="text"
@@ -94,7 +94,7 @@ class InformationForm extends Component {
       )
 
     const renderLanguagesGroup = (
-      <FormGroup row>
+      <FormGroup>
         <Label for="languages">Languages</Label>
         <Input
           type="text"
@@ -107,7 +107,7 @@ class InformationForm extends Component {
       )
 
     const renderTechnologiesGroup = (
-      <FormGroup row>
+      <FormGroup>
         <Label for="technologies">Technologies</Label>
         <Input
           type="text"

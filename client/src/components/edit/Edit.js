@@ -25,7 +25,6 @@ class Edit extends Component {
 
   render() {
     const user = this.props.user !== undefined ? this.props.user : 'Loading user...';
-    const username= this.props.match.params.username;
     const general = this.props.user.general !== undefined ? this.props.user.general : 'Loading user...';
     const contact = this.props.user.contact !== undefined ? this.props.user.contact : 'Loading user...';
     const location = this.props.user.location !== undefined ? this.props.user.location : 'Loading user...';
@@ -40,7 +39,7 @@ class Edit extends Component {
           <LocationForm location={location} user={user} />
           <ContactForm contact={contact} user={user} />
           <InformationForm information={information} user={user} />
-          <PortfolioForm portfolio={portfolio} username={username} user={user} />
+          <PortfolioForm portfolio={portfolio} user={user} />
         </Container>
       </div>
     )

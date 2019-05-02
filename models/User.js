@@ -9,6 +9,7 @@ this also needs to be refactored
     information.synopsis
 - zipCode should be a string, not a number
 - houseNumber should be a string, not a number
+- everything should have a default value!
 
 */
 

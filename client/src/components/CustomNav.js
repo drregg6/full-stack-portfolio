@@ -7,6 +7,7 @@ IF (logged_in) {
 }
 
 logo should be name specific
+import { Link } from 'react-router-dom' needs implementation
 
 */
 

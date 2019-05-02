@@ -63,7 +63,7 @@ class GeneralForm extends Component {
       <div className="inner-margin">
         <h1 className="inner-margin">General Information</h1>
         <Form onSubmit={this.handleSubmit}>
-          <FormGroup row>
+          <FormGroup>
             <Label for="firstName">First Name</Label>
               <Input
                 type="text"
@@ -73,7 +73,7 @@ class GeneralForm extends Component {
                 value={this.state.updatedBody.firstName}
               />
           </FormGroup>
-          <FormGroup row>
+          <FormGroup>
             <Label for="lastName">Last Name</Label>
               <Input
                 type="text"
