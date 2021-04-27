@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
 // @route  POST api/users/edit/:username
 // @desc   Update a User
 // @access PUBLIC
-router.post('/edit/', (req, res) => {
+router.post('/edit/:username', (req, res) => {
 
     User.findOne({username: req.params.username})
         .then(user => {
